@@ -28,12 +28,22 @@
             flex-direction: column;
         }
         
-        /* Header */
+        /*
+         * ----------------------------------------
+         * Sticky, Blurred Header + Mobile Menu
+         * ----------------------------------------
+         */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background-color: rgba(23, 23, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         .logo {
@@ -52,6 +62,12 @@
             font-weight: bold;
             color: white;
             margin-right: 10px;
+            transition: transform 0.3s ease; /* For the rotation effect */
+        }
+
+        /* Slight rotation on hover for the logo-icon */
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
         }
         
         .logo-text {
@@ -63,6 +79,7 @@
             font-weight: bold;
         }
         
+        /* Navigation menu (desktop) */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -70,20 +87,53 @@
         
         .nav-menu li {
             margin-left: 30px;
+            position: relative;
         }
         
         .nav-menu a {
             color: #ffffff;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        /* Hover underline effect */
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #fe6900;
+            transition: width 0.3s ease;
         }
         
         .nav-menu a:hover {
-            color: #ffffff;
+            color: #fe6900;
         }
         
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu button (hamburger) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
         
-        /* Main content */
+        /*
+         * ----------------------------------------
+         * Main Content
+         * ----------------------------------------
+         */
         .main-content {
             display: flex;
             flex: 1;
@@ -179,7 +229,11 @@
             display: block;
         }
         
-        /* Project Sections */
+        /*
+         * ----------------------------------------
+         * Project & YouTube Sections
+         * ----------------------------------------
+         */
         .projects-section {
             margin-top: 60px;
             padding-top: 40px;
@@ -196,7 +250,6 @@
             margin-bottom: 50px;
         }
         
-        /* Project description */
         .project-description {
             background-color: #202020;
             padding: 25px;
@@ -243,7 +296,6 @@
             transform: translateY(-2px);
         }
         
-        /* YouTube Channel Section */
         .youtube-section {
             margin-top: 60px;
             padding-top: 40px;
@@ -252,7 +304,7 @@
         
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             margin-bottom: 20px;
@@ -272,7 +324,6 @@
             gap: 20px;
         }
         
-        /* Section description */
         .section-description {
             margin-bottom: 30px;
             background-color: #202020;
@@ -286,7 +337,11 @@
             line-height: 1.6;
         }
         
-        /* Professional Footer */
+        /*
+         * ----------------------------------------
+         * Footer
+         * ----------------------------------------
+         */
         .footer {
             margin-top: 80px;
             border-top: 1px solid #333;
@@ -363,7 +418,11 @@
             margin-bottom: 10px;
         }
         
-        /* Responsive */
+        /*
+         * ----------------------------------------
+         * Responsive
+         * ----------------------------------------
+         */
         @media (max-width: 992px) {
             .main-content {
                 flex-direction: column;
@@ -385,8 +444,33 @@
         }
         
         @media (max-width: 768px) {
+            /* Hide desktop nav, show mobile button */
             .nav-menu {
                 display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(23, 23, 23, 0.95);
+                flex-direction: column;
+                padding: 20px 0;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                z-index: 100;
+            }
+            
+            /* When nav is active, it's displayed */
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
             
             .video-grid {
@@ -423,11 +507,19 @@
     <div class="container">
         <!-- Header -->
         <header>
+            <!-- Logo -->
             <div class="logo">
                 <div class="logo-icon">S</div>
                 <div class="logo-text">Sam<span>Nordic</span></div>
             </div>
-            <ul class="nav-menu">
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop/Nav Menu -->
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Research</a></li>
                 <li><a href="career.html">Career</a></li>
@@ -442,18 +534,35 @@
             <div class="left-column">
                 <div class="intro">
                     <h1>Hi I'm Samitha Thilakarathna</h1>
-                    <p>I'm a Masters student specializing in Fisheries, biodiversity and resource management at Technical University of Denmark (DTU Aqua), focused on Computer vision and AI applications. I am also a Graphic Designer and a 2D animator who contributes in different projects to convey scientific information in a cool and attractive way.
-                    Explore my research interests and career in the next pages</p>
+                    <p>
+                        I'm a Masters student specializing in Fisheries, biodiversity, and resource management 
+                        at Technical University of Denmark (DTU Aqua), focused on Computer vision and AI applications. 
+                        I am also a Graphic Designer and a 2D animator who contributes to different projects 
+                        to convey scientific information in a creative and engaging way.
+                        Explore my research interests and career on the following pages.
+                    </p>
                 </div>
                 
                 <!-- Social Media Icons with Contact Information -->
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/SamithaTK94/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/msamdk" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://wa.me/94771114957" title="WhatsApp: +94 771114957"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:msam@aqua.dtu.dk" title="Office Email: msam@aqua.dtu.dk"><i class="fas fa-envelope"></i></a>
-                    <a href="mailto:samitha.nuwan34@gmail.com" title="Personal Email: samitha.nuwan34@gmail.com"><i class="fas fa-envelope-open"></i></a>
+                    <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/msamdk" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/94771114957" title="WhatsApp: +94 771114957">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:msam@aqua.dtu.dk" title="Office Email: msam@aqua.dtu.dk">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="mailto:samitha.nuwan34@gmail.com" title="Personal Email: samitha.nuwan34@gmail.com">
+                        <i class="fas fa-envelope-open"></i>
+                    </a>
                 </div>
             </div>
             
@@ -469,14 +578,32 @@
             <div class="dtu-projects">
                 <h2 class="section-title">DTU Aqua Video Projects</h2>
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/oVCHUVFysiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/oVCHUVFysiQ"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="project-description">
                     <h3>Offshore wind farms: Nurturing Fish Spawning Grounds</h3>
-                    <p>Explore how offshore wind farms can enhance marine biodiversity by creating ideal conditions for fish spawning. These installations often feature monopile foundations with scour protection made of large rocks, forming reef-like structures that stabilize the seabed and prevent erosion. These artificial reefs provide habitats that boost fish abundance, growth, and survival. Additionally, fishing restrictions within wind farm areas can transform them into sanctuaries for various marine species.</p>
-                    <p>This video delves into a study by DTU Aqua investigating whether Atlantic cod (Gadus morhua) spawn within a Danish offshore wind farm in the North Sea. Discover how such environments may support marine life and contribute to the restoration of sustainable fish populations across European waters.</p>
+                    <p>
+                        Explore how offshore wind farms can enhance marine biodiversity by creating ideal conditions for fish spawning. 
+                        These installations often feature monopile foundations with scour protection made of large rocks, 
+                        forming reef-like structures that stabilize the seabed and prevent erosion. 
+                        These artificial reefs provide habitats that boost fish abundance, growth, and survival. 
+                        Additionally, fishing restrictions within wind farm areas can transform them into sanctuaries 
+                        for various marine species.
+                    </p>
+                    <p>
+                        This video delves into a study by DTU Aqua investigating whether Atlantic cod (Gadus morhua) spawn within 
+                        a Danish offshore wind farm in the North Sea. Discover how such environments may support marine life 
+                        and contribute to the restoration of sustainable fish populations across European waters.
+                    </p>
                     <div class="publication-link">
-                        <a href="https://orbit.dtu.dk/en/publications/offshore-wind-farms-nurturing-fish-spawning-grounds" target="_blank" class="dtu-link">
+                        <a href="https://orbit.dtu.dk/en/publications/offshore-wind-farms-nurturing-fish-spawning-grounds"
+                           target="_blank" class="dtu-link">
                             <i class="fas fa-external-link-alt"></i> View related publication on DTU Orbit
                         </a>
                     </div>
@@ -488,52 +615,102 @@
         <div class="youtube-section">
             <h2 class="section-title">SamNordic YouTube Channel</h2>
             <div class="section-description">
-                <p>SamNordic youtube channel is originated from my passion to guide students in Sri Lanka (my home country) to gain success in academia. This was a vision i had in my mind when i was a undergraduate student. I wanted to educate young students about what are the possibilites in the world that they can pursue with their academic career. </p>
+                <p>
+                    The SamNordic YouTube channel grew from my passion for guiding students in Sri Lanka (my home country)
+                    to find success in academia. As an undergraduate, I envisioned helping young students explore the wide range 
+                    of global possibilities and pursuits they could achieve with a strong academic foundation.
+                </p>
             </div>
             <div class="video-grid">
                 <!-- Video 1 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FtiTFvGDuxA?si=S9O03pl9KA_g1NNe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/FtiTFvGDuxA?si=S9O03pl9KA_g1NNe"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                     
                 <!-- Video 2 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/bTbNpzuUCKM?si=RpuEWqVl2jf1FN4G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/bTbNpzuUCKM?si=RpuEWqVl2jf1FN4G"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                     
                 <!-- Video 3 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TwUymRtWZIc?si=oQ5NNJKoZ7mOL4Y7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/TwUymRtWZIc?si=oQ5NNJKoZ7mOL4Y7"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                     
                 <!-- Video 4 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1UcAZUnuHKY?si=kyn9R-dVkSISwElp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/1UcAZUnuHKY?si=kyn9R-dVkSISwElp"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                     
                 <!-- Video 5 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MyqUxQ5QCXg?si=tefoqC-w5D38F0CU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/MyqUxQ5QCXg?si=tefoqC-w5D38F0CU"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                     
                 <!-- Video 6 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/D5AK912Ns_A?si=pUZxUh_0mrUEy1tY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/D5AK912Ns_A?si=pUZxUh_0mrUEy1tY"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
-
+                
                 <!-- Video 7 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ccPI2wgcg4Q?si=aIlNr2VzIYwSJZkz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/ccPI2wgcg4Q?si=aIlNr2VzIYwSJZkz"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
-
+                
                 <!-- Video 8 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Yl_mMDT3bck?si=FVJx8wN7a9LzWnAj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/Yl_mMDT3bck?si=FVJx8wN7a9LzWnAj"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                 
                 <!-- Video 9 -->
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/AwK15RbWJls?si=I6hmCri-sUbgli-F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/AwK15RbWJls?si=I6hmCri-sUbgli-F"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -556,20 +733,38 @@
             </div>
             
             <div class="footer-social">
-                <a href="https://www.facebook.com/SamithaTK94/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/msamdk" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://wa.me/94771114957" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/msamdk" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://wa.me/94771114957" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
             </div>
         </div>
         
         <div class="footer-bottom">
             <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
-            <p>Master Student | Computer vision | Artificial Intelligence | Sustainable fisheries and Aquaculture</p>
+            <p>Master Student | Computer vision | Artificial Intelligence | Sustainable Fisheries and Aquaculture</p>
         </div>
     </footer>
     
     <!-- Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- JavaScript to toggle mobile menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
