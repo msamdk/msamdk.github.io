@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career - Samitha Thilakarathna</title>
+    <style>
+        /* Base styles (mirroring index (2).html) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #171717;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #fe6900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+        }
+
+        .logo-text span {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #ffffff;
+        }
+
+        /* Footer styling (mirroring index (2).html) */
+        .footer {
+            margin-top: 80px;
+            border-top: 1px solid #333;
+            padding: 50px 0 20px;
+            background-color: #121212;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links li {
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #adadad;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #fe6900;
+        }
+        
+        .footer-social {
+            display: flex;
+        }
+        
+        .footer-social a {
+            color: #adadad;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: #fe6900;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #777;
+            font-size: 0.85rem;
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 10px;
+        }
+
+        /* Timeline container */
+        .timeline-container {
+            margin-top: 40px;
+            padding-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #fe6900;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        /* Vertical timeline */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            border-left: 2px solid #fe6900;
+        }
+
+        /* Each timeline item */
+        .timeline-item {
+            position: relative;
+            margin-left: 30px;
+            padding: 20px 0;
+            animation: fadeInUp 0.8s ease; /* Subtle entrance animation */
+        }
+
+        /* The circular "dot" for each milestone */
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -14px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            background-color: #fe6900;
+            border-radius: 50%;
+            border: 2px solid #171717; /* border matching body background */
+        }
+
+        .timeline-item h3 {
+            font-size: 1.3rem;
+            color: #fe6900;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item span {
+            display: block;
+            color: #cccccc;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        /* Keyframes for the fade-in animation */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">S</div>
+                <div class="logo-text">Sam<span>Nordic</span></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index (2).html">Home</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Personal Projects</a></li>
+            </ul>
+        </header>
+        
+        <!-- Timeline Main Content -->
+        <div class="timeline-container">
+            <h2 class="section-title">My Career Timeline</h2>
+            <div class="timeline">
+                <!-- Milestone 1 -->
+                <div class="timeline-item">
+                    <h3>Undergraduate (BSc Fisheries &amp; Marine Sciences)</h3>
+                    <span>University of Sri Lanka &ndash; First Class Honors</span>
+                    <p>
+                        Completed an undergraduate degree in Fisheries and Marine Sciences, 
+                        specializing in fisheries. Graduated with first class honors, gaining a 
+                        solid foundation in sustainable fisheries management and marine biodiversity.
+                    </p>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="timeline-item">
+                    <h3>Assistant Lecturer</h3>
+                    <span>Dept. of Fisheries and Aquaculture &ndash; Oct 2021 to May 2023</span>
+                    <p>
+                        Served as an Assistant Lecturer, teaching various modules related to 
+                        fisheries, aquaculture techniques, and marine conservation. Mentored 
+                        students and participated in departmental research projects.
+                    </p>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="timeline-item">
+                    <h3>Master Student</h3>
+                    <span>Technical University of Denmark (DTU) &ndash; Starting Sep 2023</span>
+                    <p>
+                        Began postgraduate studies at DTU Aqua, focusing on advanced fisheries 
+                        science, biodiversity, and resource management. Integrating computer vision 
+                        and AI to solve contemporary issues in sustainable fisheries.
+                    </p>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="timeline-item">
+                    <h3>Student Assistant (Fisheries Technology)</h3>
+                    <span>DTU Aqua &ndash; Nov 2023 to Oct 2024</span>
+                    <p>
+                        Appointed as a student assistant in the Section of Fisheries Technology. 
+                        Assisted with data collection, analysis, and experiment setups involving 
+                        cutting-edge fishery technologies and field research.
+                    </p>
+                </div>
+
+                <!-- Milestone 5 -->
+                <div class="timeline-item">
+                    <h3>Academic Employee (Grade 2)</h3>
+                    <span>DTU Aqua &ndash; From Oct 2024 onwards</span>
+                    <p>
+                        Promoted to Academic Employee (Grade 2) role. Continuing work on applied 
+                        research projects, publication writing, and active collaboration with 
+                        international partners in the fisheries sector.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">S</div>
+                    <div class="logo-text">Sam<span>Nordic</span></div>
+                </div>
+                
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index (2).html">Home</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/SamithaTK94/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/msamdk" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/94771114957" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
+                <p>Master Student | Computer Vision | Artificial Intelligence | Sustainable Fisheries and Aquaculture</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>
