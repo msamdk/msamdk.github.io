@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>My Career - Samitha Thilakarathna</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samitha Thilakarathna - Career Timeline</title>
+    <link rel="stylesheet" href="css/timeline.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 
-         * ----------------------------------------
-         * Base & Global Styles (matching index (2).html)
-         * ----------------------------------------
-         */
+        /* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -21,8 +20,6 @@
             background-color: #171717;
             color: #ffffff;
             line-height: 1.6;
-            /* This enables smooth scrolling for anchor links */
-            scroll-behavior: smooth;
         }
         
         .container {
@@ -34,11 +31,7 @@
             flex-direction: column;
         }
         
-        /* 
-         * ----------------------------------------
-         * Header
-         * ----------------------------------------
-         */
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -89,128 +82,29 @@
         }
         
         .nav-menu a:hover {
-            color: #ffffff;
-        }
-
-        /* 
-         * ----------------------------------------
-         * Horizontal Timeline (Interactive)
-         * ----------------------------------------
-         */
-        .timeline-section {
-            margin-top: 30px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 30px;
-        }
-
-        .timeline-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
             color: #fe6900;
         }
-
-        /* Scrollable container */
-        .horizontal-timeline {
-            display: flex;
-            gap: 40px;
-            overflow-x: auto; /* ensures horizontal scroll if needed */
-            padding: 10px;
-            cursor: grab; /* indicates draggable area */
-            scroll-behavior: smooth; /* ensures smooth scroll within the container */
-        }
-
-        /* Hide scrollbar (optional, can remove if you want a visible scrollbar) */
-        .horizontal-timeline::-webkit-scrollbar {
-            display: none;
-        }
-        .horizontal-timeline {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Each timeline item */
-        .timeline-item {
-            min-width: 150px; /* ensures items have a decent clickable width */
-            position: relative;
+        
+        /* Page title */
+        .page-title {
+            margin: 40px 0;
             text-align: center;
         }
-
-        .timeline-icon {
-            width: 50px;
-            height: 50px;
-            background-color: #262626;
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.3s, transform 0.3s;
+        
+        .page-title h1 {
+            font-size: 2.5rem;
             color: #fe6900;
-            font-size: 1.2rem;
+            margin-bottom: 15px;
         }
-
-        .timeline-icon:hover {
-            background-color: #fe6900;
-            color: #ffffff;
-            transform: scale(1.05);
-        }
-
-        .timeline-label {
-            color: #ffffff;
-            font-size: 0.9rem;
-        }
-
-        .timeline-duration {
+        
+        .page-title p {
             color: #cccccc;
-            font-size: 0.8rem;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
         }
-
-        /* 
-         * ----------------------------------------
-         * Detailed Sections for each Milestone
-         * ----------------------------------------
-         */
-        .milestone-section {
-            margin: 50px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .milestone-section:nth-child(even) .milestone-image {
-            order: 2; /* optional – flip image/text on even sections for variety */
-        }
-
-        .milestone-image {
-            flex: 1 1 350px;
-        }
-
-        .milestone-image img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-
-        .milestone-content {
-            flex: 1 1 400px;
-        }
-
-        .milestone-content h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #fe6900;
-        }
-
-        .milestone-content p {
-            color: #cccccc;
-            line-height: 1.6;
-        }
-
-        /* 
-         * ----------------------------------------
-         * Footer (matching index (2).html)
-         * ----------------------------------------
-         */
+        
+        /* Professional Footer */
         .footer {
             margin-top: 80px;
             border-top: 1px solid #333;
@@ -286,26 +180,35 @@
         .footer-bottom p {
             margin-bottom: 10px;
         }
-
-        /*
-         * ----------------------------------------
-         * Media Queries
-         * ----------------------------------------
-         */
+        
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
             }
         }
-
+        
         @media (max-width: 576px) {
-            .milestone-content h2 {
-                font-size: 1.3rem;
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                margin: 0 auto 20px;
+            }
+            
+            .footer-links ul {
+                justify-content: center;
+            }
+            
+            .footer-social {
+                justify-content: center;
+                margin-top: 20px;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <!-- Header -->
@@ -315,209 +218,134 @@
                 <div class="logo-text">Sam<span>Nordic</span></div>
             </div>
             <ul class="nav-menu">
-                <li><a href="index (2).html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Research</a></li>
+                <li><a href="career.html">Career</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
                 <li><a href="#">Personal Projects</a></li>
             </ul>
         </header>
-
-        <!-- Horizontal Timeline Section -->
-        <div class="timeline-section">
-            <h1 class="timeline-title">My Career Journey</h1>
-            <!-- Draggable horizontal timeline container -->
-            <div class="horizontal-timeline" id="timeline">
+        
+        <!-- Page Title -->
+        <div class="page-title">
+            <h1>My Professional Journey</h1>
+            <p>Explore my career path and professional growth in fisheries, marine sciences, and academic research.</p>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="timeline-container">
+            <div class="timeline">
+                <!-- Milestone 1: Undergraduate -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-date">2017 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Undergraduate Student</h3>
+                        <h4>University of Sri Lanka</h4>
+                        <p>Bachelor's in Fisheries and Marine Sciences (Specialized in Fisheries)</p>
+                        <div class="achievement">
+                            <i class="fas fa-award"></i> First Class Honors
+                        </div>
+                        <p>Focused on fisheries management, aquaculture, and marine conservation through rigorous academic research and field studies.</p>
+                    </div>
+                </div>
                 
-                <!-- Example Milestone 1 -->
-                <a class="timeline-item" href="#undergrad" title="Go to Undergrad Section">
-                    <div class="timeline-icon"><i class="fas fa-user-graduate"></i></div>
-                    <div class="timeline-label">Undergraduate (BSc)</div>
-                    <div class="timeline-duration">2017 - 2021</div>
-                </a>
+                <!-- Milestone 2: Assistant Lecturer -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="timeline-date">Oct 2021 - May 2023</div>
+                    <div class="timeline-content">
+                        <h3>Assistant Lecturer</h3>
+                        <h4>Department of Fisheries and Aquaculture</h4>
+                        <p>Taught undergraduate courses in fisheries management and aquaculture technologies.</p>
+                        <p>Supervised student research projects and conducted departmental research initiatives.</p>
+                        <p>Collaborated with faculty to develop curriculum and assessment strategies.</p>
+                    </div>
+                </div>
                 
-                <!-- Milestone 2 -->
-                <a class="timeline-item" href="#assistantLecturer" title="Go to Assistant Lecturer Section">
-                    <div class="timeline-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <div class="timeline-label">Assistant Lecturer</div>
-                    <div class="timeline-duration">Oct 2021 - May 2023</div>
-                </a>
+                <!-- Milestone 3: Master Student -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="timeline-date">Sep 2023 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Master Student</h3>
+                        <h4>Technical University of Denmark (DTU)</h4>
+                        <p>Specializing in Fisheries, Biodiversity and Resource Management at DTU Aqua.</p>
+                        <p>Focus on Computer Vision and AI applications in fisheries management.</p>
+                        <p>Researching innovative technological solutions for sustainable fisheries practices.</p>
+                    </div>
+                </div>
                 
-                <!-- Milestone 3 -->
-                <a class="timeline-item" href="#masters" title="Go to Master Student Section">
-                    <div class="timeline-icon"><i class="fas fa-book"></i></div>
-                    <div class="timeline-label">Master Student</div>
-                    <div class="timeline-duration">Sep 2023 - Present</div>
-                </a>
+                <!-- Milestone 4: Student Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="timeline-date">Nov 2023 - Oct 2024</div>
+                    <div class="timeline-content">
+                        <h3>Student Assistant</h3>
+                        <h4>Section of Fisheries Technology, DTU Aqua</h4>
+                        <p>Assisted in research projects focused on technological innovations in fisheries.</p>
+                        <p>Conducted data analysis and contributed to scientific publications.</p>
+                        <p>Collaborated with interdisciplinary teams on cutting-edge fisheries technology solutions.</p>
+                    </div>
+                </div>
                 
-                <!-- Milestone 4 -->
-                <a class="timeline-item" href="#studentAssistant" title="Go to Student Assistant Section">
-                    <div class="timeline-icon"><i class="fas fa-user"></i></div>
-                    <div class="timeline-label">Student Assistant</div>
-                    <div class="timeline-duration">Nov 2023 - Oct 2024</div>
-                </a>
-                
-                <!-- Milestone 5 -->
-                <a class="timeline-item" href="#academicEmployee" title="Go to Academic Employee Section">
-                    <div class="timeline-icon"><i class="fas fa-university"></i></div>
-                    <div class="timeline-label">Academic Employee</div>
-                    <div class="timeline-duration">From Oct 2024 - Present</div>
-                </a>
+                <!-- Milestone 5: Academic Employee -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-date">Oct 2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Academic Employee (Grade 2)</h3>
+                        <h4>DTU Aqua</h4>
+                        <p>Currently working on advanced research projects in sustainable fisheries management.</p>
+                        <p>Applying AI and computer vision technologies to solve complex fisheries challenges.</p>
+                        <p>Contributing to academic publications and participating in international research collaborations.</p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Detailed Sections for each Milestone -->
-        <!-- 1. Undergrad -->
-        <section class="milestone-section" id="undergrad">
-            <div class="milestone-image">
-                <!-- Replace with your actual photo or relevant image -->
-                <img src="images/undergrad.jpg" alt="Undergraduate Studies" />
-            </div>
-            <div class="milestone-content">
-                <h2>Undergraduate (BSc Fisheries &amp; Marine Sciences)</h2>
-                <p>
-                    I earned my Bachelor’s (Honors) degree in Fisheries and Marine Sciences, specializing in Fisheries Science and graduating with First Class Honors (Danish scale GPA of 10.7). During my studies, I acquired comprehensive knowledge of fish biology including physiology, histology, molecular genetics, and genetic studies as well as introductory statistical modeling for fisheries and aquaculture, capture fisheries and fishing gear technology in the Indian Ocean region, and biological, chemical, and physical oceanography with a particular emphasis on fisheries oceanography. The curriculum also incorporated fundamental mathematics (calculus), enhancing my analytical skills.
-
-                    Throughout the program, I gained extensive hands-on experience in both laboratory and fieldwork contexts, particularly in histological and physiological experimentation. My Bachelor’s thesis focused on fisheries oceanography and involved mapping the fishing grounds of yellowfin tuna, bigeye tuna, and swordfish in relation to the spatial and temporal variability of the Indian Ocean. This research underscored my ability to integrate data analysis and environmental factors to tackle real-world challenges in fisheries management.
-                </p>
-            </div>
-        </section>
-
-        <!-- 2. Assistant Lecturer -->
-        <section class="milestone-section" id="assistantLecturer">
-            <div class="milestone-image">
-                <!-- Replace with your own image relevant to teaching -->
-                <img src="images/assistant_lecturer.jpg" alt="Assistant Lecturer" />
-            </div>
-            <div class="milestone-content">
-                <h2>Assistant Lecturer (Oct 2021 - May 2023)</h2>
-                <p>
-                    I joined the Department of Fisheries and Aquaculture as an Assistant Lecturer, 
-                    engaging in teaching core modules on fisheries, aquaculture techniques, 
-                    and marine conservation. I also supervised practical sessions and supported 
-                    departmental research.
-                </p>
-            </div>
-        </section>
-
-        <!-- 3. Master Student -->
-        <section class="milestone-section" id="masters">
-            <div class="milestone-image">
-                <!-- Replace with your own photo or relevant DTU Aqua image -->
-                <img src="images/master_student.jpg" alt="Master Student at DTU Aqua" />
-            </div>
-            <div class="milestone-content">
-                <h2>Master Student (Sep 2023 - Present)</h2>
-                <p>
-                    Pursuing a Master's degree at the Technical University of Denmark (DTU Aqua),
-                    focusing on Fisheries, Biodiversity, and Resource Management. 
-                    This is where I'm integrating Computer Vision and AI to address modern 
-                    challenges in fisheries research and sustainability.
-                </p>
-            </div>
-        </section>
-
-        <!-- 4. Student Assistant -->
-        <section class="milestone-section" id="studentAssistant">
-            <div class="milestone-image">
-                <!-- Replace with your relevant project image or lab photo -->
-                <img src="images/student_assistant.jpg" alt="Student Assistant at DTU Aqua" />
-            </div>
-            <div class="milestone-content">
-                <h2>Student Assistant (Nov 2023 - Oct 2024)</h2>
-                <p>
-                    Served as a student assistant in the Section of Fisheries Technology at DTU Aqua,
-                    assisting in data collection, lab experiments, and analyzing real-time data 
-                    for ongoing fisheries research projects.
-                </p>
-            </div>
-        </section>
-
-        <!-- 5. Academic Employee -->
-        <section class="milestone-section" id="academicEmployee">
-            <div class="milestone-image">
-                <!-- Replace with your relevant academic image or a project photo -->
-                <img src="images/academic_employee.jpg" alt="Academic Employee at DTU Aqua" />
-            </div>
-            <div class="milestone-content">
-                <h2>Academic Employee (Grade 2) from Oct 2024</h2>
-                <p>
-                    After demonstrating a strong foundation and research aptitude, I was promoted 
-                    to an Academic Employee (Grade 2) position at DTU Aqua, continuing to expand 
-                    on research, international collaborations, and advanced studies in sustainable fisheries.
-                </p>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
+        
+        <!-- Professional Footer -->
+        <div class="footer">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">S</div>
-                    <div class="logo-text">Sam<span>Nordic</span></div>
+                <div>
+                    <div class="footer-logo">
+                        <div class="logo-icon">S</div>
+                        <div class="logo-text">Sam<span>Nordic</span></div>
+                    </div>
                 </div>
-                
                 <div class="footer-links">
                     <ul>
-                        <li><a href="index (2).html">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="career.html">Career</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="#">Personal Projects</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/SamithaTK94/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/msamdk" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://wa.me/94771114957" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/SamithaTK94/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/msamdk"><i class="fab fa-github"></i></a>
+                    <a href="mailto:msam@aqua.dtu.dk"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
-                <p>Master Student | Computer Vision | Artificial Intelligence | Sustainable Fisheries &amp; Aquaculture</p>
+                <p>&copy; 2024 Samitha Thilakarathna. All rights reserved.</p>
             </div>
-        </footer>
+        </div>
     </div>
-
-    <!-- Font Awesome for Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- 
-      Optional JavaScript to enable click-and-drag scrolling on the timeline.
-      Clicking a milestone will still jump to the corresponding section below.
-    -->
-    <script>
-        const timelineContainer = document.getElementById('timeline');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        timelineContainer.addEventListener('mousedown', (e) => {
-            isDown = true;
-            // "grab" cursor effect
-            timelineContainer.style.cursor = 'grabbing';
-            startX = e.pageX - timelineContainer.offsetLeft;
-            scrollLeft = timelineContainer.scrollLeft;
-        });
-
-        timelineContainer.addEventListener('mouseleave', () => {
-            isDown = false;
-            timelineContainer.style.cursor = 'grab';
-        });
-
-        timelineContainer.addEventListener('mouseup', () => {
-            isDown = false;
-            timelineContainer.style.cursor = 'grab';
-        });
-
-        timelineContainer.addEventListener('mousemove', (e) => {
-            if (!isDown) return; // stop if mouse not held
-            e.preventDefault();
-            const x = e.pageX - timelineContainer.offsetLeft;
-            const walk = (x - startX) * 1.5; // scroll sensitivity
-            timelineContainer.scrollLeft = scrollLeft - walk;
-        });
-    </script>
+    
+    <!-- JavaScript for animations -->
+    <script src="js/timeline.js"></script>
 </body>
 </html>
