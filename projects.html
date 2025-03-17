@@ -1,111 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samitha Thilakarathna - Personal Projects</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background: #111;
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-title {
-            font-size: 2rem;
-            font-weight: bold;
-            animation: fadeInDown 1s;
-        }
-        .project-section {
-            padding: 50px 10%;
-            animation: fadeIn 1.5s;
-        }
-        .project-card {
-            background: #222;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-        iframe {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samitha Thilakarathna - Projects</title>
+  <style>
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #171717;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 85%;
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Sticky, Blurred Header + Mobile Menu
+     * ----------------------------------------
+     */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      background-color: rgba(23, 23, 23, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #fe6900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Slight rotation on hover for the logo-icon */
+    .logo:hover .logo-icon {
+      transform: rotate(10deg);
+    }
+    
+    .logo-text {
+      font-size: 1.2rem;
+    }
+    
+    .logo-text span {
+      color: #ffffff;
+      font-weight: bold;
+    }
+    
+    /* Navigation menu (desktop) */
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+    }
+    
+    /* Hover underline effect */
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #fe6900;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+      color: #fe6900;
+    }
+    
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+    
+    /* Mobile menu button (hamburger) */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Project & YouTube Sections
+     * ----------------------------------------
+     */
+    .projects-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #fe6900;
+    }
+    
+    .dtu-projects {
+      margin-bottom: 50px;
+    }
+    
+    .project-description {
+      background-color: #202020;
+      padding: 25px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border-left: 3px solid #fe6900;
+    }
+    
+    .project-description h3 {
+      color: #fe6900;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    
+    .project-description p {
+      color: #cccccc;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .publication-link {
+      margin-top: 15px;
+    }
+    
+    .dtu-link {
+      display: inline-flex;
+      align-items: center;
+      background-color: #262626;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    .dtu-link i {
+      margin-right: 8px;
+      color: #fe6900;
+    }
+    
+    .dtu-link:hover {
+      background-color: #333333;
+      transform: translateY(-2px);
+    }
+    
+    .youtube-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    
+    .section-description {
+      margin-bottom: 30px;
+      background-color: #202020;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 3px solid #fe6900;
+    }
+    
+    .section-description p {
+      color: #cccccc;
+      line-height: 1.6;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Footer
+     * ----------------------------------------
+     */
+    .footer {
+      margin-top: 80px;
+      border-top: 1px solid #333;
+      padding: 50px 0 20px;
+      background-color: #121212;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo .logo-icon {
+      width: 35px;
+      height: 35px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links li {
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #adadad;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fe6900;
+    }
+    
+    .footer-social {
+      display: flex;
+    }
+    
+    .footer-social a {
+      color: #adadad;
+      font-size: 1.2rem;
+      margin-right: 20px;
+      transition: all 0.3s;
+    }
+    
+    .footer-social a:hover {
+      color: #fe6900;
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 0.85rem;
+    }
+    
+    .footer-bottom p {
+      margin-bottom: 10px;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Responsive
+     * ----------------------------------------
+     */
+    @media (max-width: 992px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      /* Hide desktop nav, show mobile button */
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(23, 23, 23, 0.95);
+        flex-direction: column;
+        padding: 20px 0;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+      }
+      
+      /* When nav is active, it's displayed */
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .nav-menu li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-logo {
+        margin: 0 auto 20px;
+      }
+      
+      .footer-links ul {
+        justify-content: center;
+      }
+      
+      .footer-social {
+        justify-content: center;
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <!-- Header -->
     <header>
-        <div class="header-title">Samitha Thilakarathna - Personal Projects</div>
+      <div class="logo">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">Sam<span>Nordic</span></div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
+      </ul>
     </header>
 
-    <section class="project-section">
-        <h2>DTU Aqua Video Projects</h2>
-        <div class="project-card">
-            <h3>Offshore Wind Farms: Nurturing Fish Spawning Grounds</h3>
-            <iframe src="https://www.youtube.com/embed/oVCHUVFysiQ" allowfullscreen></iframe>
-            <p>Explore how offshore wind farms can enhance marine biodiversity by creating spawning habitats. The study by DTU Aqua investigates whether Atlantic cod (Gadus morhua) spawn within a Danish offshore wind farm in the North Sea.</p>
-            <a href="https://orbit.dtu.dk/en/publications/offshore-wind-farms-nurturing-fish-spawning-grounds" target="_blank" style="color:#ff9800; text-decoration:none;">View Related Publication</a>
+    <!-- Projects Section -->
+    <div class="projects-section">
+      <div class="dtu-projects">
+        <h2 class="section-title">DTU Aqua Video Projects</h2>
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/oVCHUVFysiQ"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+          </iframe>
         </div>
-    </section>
+        <div class="project-description">
+          <h3>Offshore wind farms: Nurturing Fish Spawning Grounds</h3>
+          <p>
+            Explore how offshore wind farms can enhance marine biodiversity by creating ideal conditions for fish spawning. 
+            These installations often feature monopile foundations with scour protection made of large rocks, 
+            forming reef-like structures that stabilize the seabed and prevent erosion. 
+            These artificial reefs provide habitats that boost fish abundance, growth, and survival. 
+            Additionally, fishing restrictions within wind farm areas can transform them into sanctuaries 
+            for various marine species.
+          </p>
+          <p>
+            This video delves into a study by DTU Aqua investigating whether Atlantic cod (Gadus morhua) spawn within 
+            a Danish offshore wind farm in the North Sea. Discover how such environments may support marine life 
+            and contribute to the restoration of sustainable fish populations across European waters.
+          </p>
+          <div class="publication-link">
+            <a href="https://orbit.dtu.dk/en/publications/offshore-wind-farms-nurturing-fish-spawning-grounds"
+               target="_blank" class="dtu-link">
+              <i class="fas fa-external-link-alt"></i> View related publication on DTU Orbit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <section class="project-section">
-        <h2>SamNordic YouTube Channel</h2>
-        <p>A platform dedicated to academic guidance and knowledge sharing for students.</p>
-        <div class="project-card">
-            <iframe src="https://www.youtube.com/embed/FtiTFvGDuxA" allowfullscreen></iframe>
-            <p>Introduction to AI and computer vision concepts for beginners.</p>
+    <!-- SamNordic YouTube Channel Section -->
+    <div class="youtube-section">
+      <h2 class="section-title">SamNordic YouTube Channel</h2>
+      <div class="section-description">
+        <p>
+          The SamNordic YouTube channel grew from my passion for guiding students in Sri Lanka (my home country)
+          to find success in academia. As an undergraduate, I envisioned helping young students explore the wide range 
+          of global possibilities and pursuits they could achieve with a strong academic foundation.
+        </p>
+      </div>
+      <div class="video-grid">
+        <!-- Video 1 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/FtiTFvGDuxA?si=S9O03pl9KA_g1NNe"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
         </div>
-        <div class="project-card">
-            <iframe src="https://www.youtube.com/embed/bTbNpzuUCKM" allowfullscreen></iframe>
-            <p>Exploring sustainable fisheries management through AI and automation.</p>
+        <!-- Video 2 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/bTbNpzuUCKM?si=RpuEWqVl2jf1FN4G"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
         </div>
-        <div class="project-card">
-            <iframe src="https://www.youtube.com/embed/TwUymRtWZIc" allowfullscreen></iframe>
-            <p>Understanding deep learning applications in marine research.</p>
+        <!-- Video 3 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/TwUymRtWZIc?si=oQ5NNJKoZ7mOL4Y7"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
         </div>
-        <div class="project-card">
-            <iframe src="https://www.youtube.com/embed/1UcAZUnuHKY" allowfullscreen></iframe>
-            <p>AI-powered monitoring tools for fisheries and aquaculture.</p>
+        <!-- Video 4 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/1UcAZUnuHKY?si=kyn9R-dVkSISwElp"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
         </div>
-        <div class="project-card">
-            <iframe src="https://www.youtube.com/embed/MyqUxQ5QCXg" allowfullscreen></iframe>
-            <p>Computer vision applications in marine species identification.</p>
+        <!-- Video 5 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/MyqUxQ5QCXg?si=tefoqC-w5D38F0CU"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
         </div>
-    </section>
+        <!-- Video 6 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/D5AK912Ns_A?si=pUZxUh_0mrUEy1tY"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <!-- Video 7 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/ccPI2wgcg4Q?si=aIlNr2VzIYwSJZkz"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <!-- Video 8 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/Yl_mMDT3bck?si=FVJx8wN7a9LzWnAj"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <!-- Video 9 -->
+        <div class="video-container">
+          <iframe width="560" height="315"
+                  src="https://www.youtube.com/embed/AwK15RbWJls?si=I6hmCri-sUbgli-F"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
 
+    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Samitha Thilakarathna | Computer Vision | AI | Fisheries & Aquaculture</p>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-icon">S</div>
+          <div class="logo-text">Sam<span>Nordic</span></div>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/msamdk" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://wa.me/94771114957" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
+        <p>Master Student | Computer vision | Artificial Intelligence | Sustainable Fisheries and Aquaculture</p>
+      </div>
     </footer>
+  </div>
+  
+  <!-- Font Awesome for icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  
+  <!-- JavaScript to toggle mobile menu -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
