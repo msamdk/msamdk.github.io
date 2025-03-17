@@ -1,1 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samitha Thilakarathna - Research</title>
+  <style>
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #171717;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 85%;
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Sticky, Blurred Header + Mobile Menu
+     * ----------------------------------------
+     */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      background-color: rgba(23, 23, 23, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #fe6900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Slight rotation on hover for the logo-icon */
+    .logo:hover .logo-icon {
+      transform: rotate(10deg);
+    }
+    
+    .logo-text {
+      font-size: 1.2rem;
+    }
+    
+    .logo-text span {
+      color: #ffffff;
+      font-weight: bold;
+    }
+    
+    /* Navigation menu (desktop) */
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+    }
+    
+    /* Hover underline effect */
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #fe6900;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+      color: #fe6900;
+    }
+    
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+    
+    /* Mobile menu button (hamburger) */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Research Section
+     * ----------------------------------------
+     */
+    .research-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #fe6900;
+    }
+    
+    .research-item {
+      background-color: #202020;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border-left: 3px solid #fe6900;
+    }
+    
+    .research-item h3 {
+      color: #fe6900;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    
+    .research-item p {
+      color: #cccccc;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Footer
+     * ----------------------------------------
+     */
+    .footer {
+      margin-top: 80px;
+      border-top: 1px solid #333;
+      padding: 50px 0 20px;
+      background-color: #121212;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo .logo-icon {
+      width: 35px;
+      height: 35px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links li {
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #adadad;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fe6900;
+    }
+    
+    .footer-social {
+      display: flex;
+    }
+    
+    .footer-social a {
+      color: #adadad;
+      font-size: 1.2rem;
+      margin-right: 20px;
+      transition: all 0.3s;
+    }
+    
+    .footer-social a:hover {
+      color: #fe6900;
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 0.85rem;
+    }
+    
+    .footer-bottom p {
+      margin-bottom: 10px;
+    }
+    
+    /*
+     * ----------------------------------------
+     * Responsive
+     * ----------------------------------------
+     */
+    @media (max-width: 992px) {
+      /* Adjust layout if necessary */
+    }
+    
+    @media (max-width: 768px) {
+      /* Hide desktop nav, show mobile button */
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(23, 23, 23, 0.95);
+        flex-direction: column;
+        padding: 20px 0;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+      }
+      
+      /* When nav is active, it's displayed */
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .nav-menu li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-logo {
+        margin: 0 auto 20px;
+      }
+      
+      .footer-links ul {
+        justify-content: center;
+      }
+      
+      .footer-social {
+        justify-content: center;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">Sam<span>Nordic</span></div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
+      </ul>
+    </header>
+
+    <!-- Research Section -->
+    <div class="research-section">
+      <h2 class="section-title">Research</h2>
+      
+      <!-- Research Item 1 -->
+      <div class="research-item">
+        <h3>Developing Computer Vision Models for Fish Re-Identification in Fish Sorting Belts on Fishing Vessels</h3>
+        <p>The research is on the way, will update about the cool stuff soon.</p>
+      </div>
+      
+      <!-- Research Item 2 -->
+      <div class="research-item">
+        <h3>Developing Biodegradable Solutions to Lobster Pots</h3>
+        <p>Focusing on escape mechanisms for lobsters/fish to prevent ghost fishing and reduce micro-plastic pollution.</p>
+        <p>In this experiment, we are using PHA (polyhydroxyalkanoate), a fully biodegradable plastic that serves as an alternative to PLA. Despite its potential, PHA’s applications in marine settings remain largely unexplored. We are developing a prototype for an escape mechanism that can be integrated with existing lobster pots with minimal modifications, reducing costs and simplifying the transition to sustainable fishing methods. Our approach involves 3D printing the model to offer an affordable production process, and we are currently assessing the strength and durability of the solution in real ocean conditions. More exciting research updates will be shared soon.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-icon">S</div>
+          <div class="logo-text">Sam<span>Nordic</span></div>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/msamdk" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://wa.me/94771114957" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
+        <p>Master Student | Computer vision | Artificial Intelligence | Sustainable Fisheries and Aquaculture</p>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- Font Awesome for icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  
+  <!-- JavaScript to toggle mobile menu -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
 
