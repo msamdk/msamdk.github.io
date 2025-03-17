@@ -28,11 +28,9 @@
             flex-direction: column;
         }
         
-        /*
-         * ----------------------------------------
+        /* ----------------------------------------
          * Sticky, Blurred Header + Mobile Menu
-         * ----------------------------------------
-         */
+         * ---------------------------------------- */
         header {
             display: flex;
             justify-content: space-between;
@@ -64,7 +62,7 @@
             margin-right: 10px;
             transition: transform 0.3s ease; /* For the rotation effect */
         }
-
+        
         /* Slight rotation on hover for the logo-icon */
         .logo:hover .logo-icon {
             transform: rotate(10deg);
@@ -98,7 +96,7 @@
             padding: 8px 0;
             position: relative;
         }
-
+        
         /* Hover underline effect */
         .nav-menu a::after {
             content: '';
@@ -118,7 +116,7 @@
         .nav-menu a:hover::after {
             width: 100%;
         }
-
+        
         /* Mobile menu button (hamburger) */
         .mobile-menu-btn {
             display: none;
@@ -129,11 +127,9 @@
             cursor: pointer;
         }
         
-        /*
-         * ----------------------------------------
+        /* ----------------------------------------
          * Main Content
-         * ----------------------------------------
-         */
+         * ---------------------------------------- */
         .main-content {
             display: flex;
             flex: 1;
@@ -229,119 +225,44 @@
             display: block;
         }
         
-        /*
-         * ----------------------------------------
-         * Project & YouTube Sections
-         * ----------------------------------------
-         */
-        .projects-section {
+        /* Additional new sections */
+        .new-sections {
             margin-top: 60px;
             padding-top: 40px;
             border-top: 1px solid #333;
         }
-        
-        .section-title {
+        .new-sections .section-title {
             font-size: 2rem;
             margin-bottom: 30px;
             color: #fe6900;
         }
-        
-        .dtu-projects {
-            margin-bottom: 50px;
-        }
-        
-        .project-description {
+        .new-sections .section-description {
             background-color: #202020;
             padding: 25px;
             border-radius: 8px;
             margin-top: 20px;
             border-left: 3px solid #fe6900;
-        }
-        
-        .project-description h3 {
-            color: #fe6900;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-        
-        .project-description p {
             color: #cccccc;
-            margin-bottom: 20px;
-            line-height: 1.6;
         }
-        
-        .publication-link {
+        .new-sections .animated-icon {
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+            color: #fe6900;
+            font-size: 1.5rem;
+        }
+        .new-sections .animated-icon:hover {
+            transform: scale(1.2);
+        }
+        .new-sections img {
+            max-width: 100%;
             margin-top: 15px;
-        }
-        
-        .dtu-link {
-            display: inline-flex;
-            align-items: center;
-            background-color: #262626;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .dtu-link i {
-            margin-right: 8px;
-            color: #fe6900;
-        }
-        
-        .dtu-link:hover {
-            background-color: #333333;
-            transform: translateY(-2px);
-        }
-        
-        .youtube-section {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #333;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
-        .section-description {
-            margin-bottom: 30px;
-            background-color: #202020;
-            padding: 20px;
             border-radius: 8px;
-            border-left: 3px solid #fe6900;
         }
         
-        .section-description p {
-            color: #cccccc;
-            line-height: 1.6;
-        }
-        
-        /*
-         * ----------------------------------------
+        /* ----------------------------------------
          * Footer
-         * ----------------------------------------
-         */
+         * ---------------------------------------- */
         .footer {
             margin-top: 80px;
             border-top: 1px solid #333;
@@ -418,26 +339,21 @@
             margin-bottom: 10px;
         }
         
-        /*
-         * ----------------------------------------
+        /* ----------------------------------------
          * Responsive
-         * ----------------------------------------
-         */
+         * ---------------------------------------- */
         @media (max-width: 992px) {
             .main-content {
                 flex-direction: column;
             }
-            
             .left-column, .right-column {
                 width: 100%;
                 padding-right: 0;
             }
-            
             .right-column {
                 margin-top: 40px;
                 height: 400px;
             }
-            
             .social-icons {
                 margin-top: 30px;
             }
@@ -458,44 +374,29 @@
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
                 z-index: 100;
             }
-            
-            /* When nav is active, it's displayed */
             .nav-menu.active {
                 display: flex;
             }
-            
             .nav-menu li {
                 margin: 10px 0;
                 text-align: center;
             }
-
             .mobile-menu-btn {
                 display: block;
-            }
-            
-            .video-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 576px) {
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .footer-content {
                 flex-direction: column;
                 text-align: center;
             }
-            
             .footer-logo {
                 margin: 0 auto 20px;
             }
-            
             .footer-links ul {
                 justify-content: center;
             }
-            
             .footer-social {
                 justify-content: center;
                 margin-top: 20px;
@@ -524,7 +425,7 @@
                 <li><a href="#">Research</a></li>
                 <li><a href="career.html">Career</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="#">Personal Projects</a></li>
+                <li><a href="personal_projects.html">Personal Projects</a></li>
             </ul>
         </header>
         
@@ -571,193 +472,89 @@
                 <img src="images/prof_im.png" alt="Samitha Thilakarathna" class="profile-image">
             </div>
         </div>
-        
-        <!-- Project Sections -->
-        <div class="projects-section">
-            <!-- DTU Aqua Animation Projects -->
-            <div class="dtu-projects">
-                <h2 class="section-title">DTU Aqua Video Projects</h2>
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/oVCHUVFysiQ"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="project-description">
-                    <h3>Offshore wind farms: Nurturing Fish Spawning Grounds</h3>
+
+        <!-- New Sections -->
+        <div class="new-sections">
+            <!-- Research Interests -->
+            <div class="section">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="section-description">
+                    <i class="fas fa-flask animated-icon"></i>
                     <p>
-                        Explore how offshore wind farms can enhance marine biodiversity by creating ideal conditions for fish spawning. 
-                        These installations often feature monopile foundations with scour protection made of large rocks, 
-                        forming reef-like structures that stabilize the seabed and prevent erosion. 
-                        These artificial reefs provide habitats that boost fish abundance, growth, and survival. 
-                        Additionally, fishing restrictions within wind farm areas can transform them into sanctuaries 
-                        for various marine species.
+                        Investigating computer vision applications in marine science, exploring how AI can improve fish biodiversity assessments,
+                        and contributing to sustainable aquaculture through data-driven research.
                     </p>
+                    <img src="images/research_interests.jpg" alt="Research Interests" />
+                </div>
+            </div>
+
+            <!-- Passion -->
+            <div class="section">
+                <h2 class="section-title">Passion</h2>
+                <div class="section-description">
+                    <i class="fas fa-heart animated-icon"></i>
                     <p>
-                        This video delves into a study by DTU Aqua investigating whether Atlantic cod (Gadus morhua) spawn within 
-                        a Danish offshore wind farm in the North Sea. Discover how such environments may support marine life 
-                        and contribute to the restoration of sustainable fish populations across European waters.
+                        Integrating creativity with science through graphic design, animation, and visual storytelling,
+                        empowering scientific communities to communicate complex topics in engaging ways.
                     </p>
-                    <div class="publication-link">
-                        <a href="https://orbit.dtu.dk/en/publications/offshore-wind-farms-nurturing-fish-spawning-grounds"
-                           target="_blank" class="dtu-link">
-                            <i class="fas fa-external-link-alt"></i> View related publication on DTU Orbit
-                        </a>
-                    </div>
-                </div>  
+                </div>
             </div>
-        </div>
-        
-        <!-- SamNordic YouTube Channel Section -->
-        <div class="youtube-section">
-            <h2 class="section-title">SamNordic YouTube Channel</h2>
-            <div class="section-description">
-                <p>
-                    The SamNordic YouTube channel grew from my passion for guiding students in Sri Lanka (my home country)
-                    to find success in academia. As an undergraduate, I envisioned helping young students explore the wide range 
-                    of global possibilities and pursuits they could achieve with a strong academic foundation.
-                </p>
-            </div>
-            <div class="video-grid">
-                <!-- Video 1 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/FtiTFvGDuxA?si=S9O03pl9KA_g1NNe"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                    
-                <!-- Video 2 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/bTbNpzuUCKM?si=RpuEWqVl2jf1FN4G"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                    
-                <!-- Video 3 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/TwUymRtWZIc?si=oQ5NNJKoZ7mOL4Y7"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                    
-                <!-- Video 4 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/1UcAZUnuHKY?si=kyn9R-dVkSISwElp"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                    
-                <!-- Video 5 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/MyqUxQ5QCXg?si=tefoqC-w5D38F0CU"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                    
-                <!-- Video 6 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/D5AK912Ns_A?si=pUZxUh_0mrUEy1tY"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                
-                <!-- Video 7 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/ccPI2wgcg4Q?si=aIlNr2VzIYwSJZkz"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                
-                <!-- Video 8 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/Yl_mMDT3bck?si=FVJx8wN7a9LzWnAj"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-                
-                <!-- Video 9 -->
-                <div class="video-container">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/AwK15RbWJls?si=I6hmCri-sUbgli-F"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
+
+            <!-- Goals -->
+            <div class="section">
+                <h2 class="section-title">Goals</h2>
+                <div class="section-description">
+                    <i class="fas fa-bullseye animated-icon"></i>
+                    <p>
+                        Aiming to develop innovative AI tools that advance fisheries management and
+                        promote environmental sustainability for marine ecosystems worldwide.
+                    </p>
                 </div>
             </div>
         </div>
+
+        <!-- Professional Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">S</div>
+                    <div class="logo-text">Sam<span>Nordic</span></div>
+                </div>
+                
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/msamdk" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/94771114957" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
+                <p>Master Student | Computer vision | Artificial Intelligence | Sustainable Fisheries and Aquaculture</p>
+            </div>
+        </footer>
     </div>
     
-    <!-- Professional Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo-icon">S</div>
-                <div class="logo-text">Sam<span>Nordic</span></div>
-            </div>
-            
-            <div class="footer-links">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-social">
-                <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/msamdk" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://wa.me/94771114957" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
-            <p>Master Student | Computer vision | Artificial Intelligence | Sustainable Fisheries and Aquaculture</p>
-        </div>
-    </footer>
-    
-    <!-- Font Awesome for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
     <!-- JavaScript to toggle mobile menu -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
