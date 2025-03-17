@@ -1,347 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samitha Thilakarathna - Downloads</title>
-    <style>
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #171717;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 85%;
-            max-width: 1400px;
-            margin: 0 auto;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #fe6900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            font-weight: bold;
-            color: white;
-            margin-right: 10px;
-        }
-        
-        .logo-text {
-            font-size: 1.2rem;
-        }
-        
-        .logo-text span {
-            color: #ffffff;
-            font-weight: bold;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-menu li {
-            margin-left: 30px;
-        }
-        
-        .nav-menu a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-menu a:hover {
-            color: #ffffff;
-        }
-        
-        /* Main content */
-        .main-content {
-            flex: 1;
-            margin-top: 50px;
-            padding-bottom: 80px;
-        }
-        
-        .page-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #fe6900;
-        }
-        
-        .page-description {
-            color: #cccccc;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            max-width: 800px;
-        }
-        
-        /* Downloads section */
-        .downloads-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .download-card {
-            background-color: #202020;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 3px solid #fe6900;
-        }
-        
-        .download-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .download-icon {
-            height: 150px;
-            background-color: #262626;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
-            color: #fe6900;
-        }
-        
-        .download-content {
-            padding: 25px;
-        }
-        
-        .download-title {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-        
-        .download-description {
-            color: #cccccc;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background-color: #fe6900;
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
-            text-align: center;
-            width: 100%;
-        }
-        
-        .download-btn:hover {
-            background-color: #ff7a1a;
-            transform: translateY(-2px);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .downloads-section {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Professional Footer */
-        .footer {
-            margin-top: 80px;
-            border-top: 1px solid #333;
-            padding: 50px 0 20px;
-            background-color: #121212;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo .logo-icon {
-            width: 35px;
-            height: 35px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links li {
-            margin-right: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #adadad;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #fe6900;
-        }
-        
-        .footer-social {
-            display: flex;
-        }
-        
-        .footer-social a {
-            color: #adadad;
-            font-size: 1.2rem;
-            margin-right: 20px;
-            transition: all 0.3s;
-        }
-        
-        .footer-social a:hover {
-            color: #fe6900;
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #222;
-            color: #777;
-            font-size: 0.85rem;
-        }
-        
-        .footer-bottom p {
-            margin-bottom: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samitha Thilakarathna - Downloads</title>
+  <style>
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #171717;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 85%;
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Sticky, Blurred Header + Mobile Menu */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      background-color: rgba(23, 23, 23, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #fe6900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Slight rotation on hover for the logo-icon */
+    .logo:hover .logo-icon {
+      transform: rotate(10deg);
+    }
+    
+    .logo-text {
+      font-size: 1.2rem;
+    }
+    
+    .logo-text span {
+      color: #ffffff;
+      font-weight: bold;
+    }
+    
+    /* Navigation menu (desktop) */
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+    }
+    
+    /* Hover underline effect */
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #fe6900;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+      color: #fe6900;
+    }
+    
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+    
+    /* Mobile menu button (hamburger) */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /* Main content */
+    .main-content {
+      flex: 1;
+      margin-top: 50px;
+      padding-bottom: 80px;
+    }
+    
+    .page-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fe6900;
+    }
+    
+    .page-description {
+      color: #cccccc;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 800px;
+    }
+    
+    /* Downloads section */
+    .downloads-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .download-card {
+      background-color: #202020;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 3px solid #fe6900;
+    }
+    
+    .download-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .download-icon {
+      height: 150px;
+      background-color: #262626;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4rem;
+      color: #fe6900;
+    }
+    
+    .download-content {
+      padding: 25px;
+    }
+    
+    .download-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    
+    .download-description {
+      color: #cccccc;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      background-color: #fe6900;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: background-color 0.3s, transform 0.3s;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .download-btn:hover {
+      background-color: #ff7a1a;
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .downloads-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+    
+    /* Professional Footer */
+    .footer {
+      margin-top: 80px;
+      border-top: 1px solid #333;
+      padding: 50px 0 20px;
+      background-color: #121212;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo .logo-icon {
+      width: 35px;
+      height: 35px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links li {
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #adadad;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fe6900;
+    }
+    
+    .footer-social {
+      display: flex;
+    }
+    
+    .footer-social a {
+      color: #adadad;
+      font-size: 1.2rem;
+      margin-right: 20px;
+      transition: all 0.3s;
+    }
+    
+    .footer-social a:hover {
+      color: #fe6900;
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 0.85rem;
+    }
+    
+    .footer-bottom p {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="logo">
-                <div class="logo-icon">S</div>
-                <div class="logo-text">Sam<span>Nordic</span></div>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="#">Work</a></li>
-            </ul>
-        </header>
-        
-        <!-- Main Content -->
-        <div class="main-content">
-            <h1 class="page-title">Free Resources</h1>
-            <p class="page-description">Here you can find useful tools and templates I've created to help students with their academic journey. Feel free to download and use these resources for your needs.</p>
-            
-            <div class="downloads-section">
-                <!-- GPA Calculator Card -->
-                <div class="download-card">
-                    <div class="download-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="download-content">
-                        <h3 class="download-title">GPA Calculator</h3>
-                        <p class="download-description">An easy-to-use GPA calculator tool to help you track and manage your academic performance. Simply enter your course information and get instant GPA calculations.</p>
-                        <a href="https://drive.google.com/drive/folders/11_wo79ivlAFEEV6pqaEm22Lpfvh9xAhT?usp=drive_link" class="download-btn" target="_blank">
-                            <i class="fas fa-download"></i> Open Folder
-                        </a>
-
-                    </div>
-                </div>
-                
-                <!-- Academic CV Template Card -->
-                <div class="download-card">
-                    <div class="download-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="download-content">
-                        <h3 class="download-title">Academic CV Template</h3>
-                        <p class="download-description">A professionally designed CV template specifically tailored for academic purposes. Stand out from the crowd with a well-organized and visually appealing CV format.</p>
-                        <a href="https://drive.google.com/drive/folders/1pkuoiEevV2ZN_gDZdafZAlOS0pl6PPBx?usp=drive_link" class="download-btn" target="_blank">
-                            <i class="fas fa-download"></i> Open Folder
-                        </a>
-                        
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">Sam<span>Nordic</span></div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="#">Work</a></li>
+      </ul>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1 class="page-title">Free Resources</h1>
+      <p class="page-description">Here you can find useful tools and templates I've created to help students with their academic journey. Feel free to download and use these resources for your needs.</p>
+      
+      <div class="downloads-section">
+        <!-- GPA Calculator Card -->
+        <div class="download-card">
+          <div class="download-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="download-content">
+            <h3 class="download-title">GPA Calculator</h3>
+            <p class="download-description">An easy-to-use GPA calculator tool to help you track and manage your academic performance. Simply enter your course information and get instant GPA calculations.</p>
+            <a href="https://drive.google.com/drive/folders/11_wo79ivlAFEEV6pqaEm22Lpfvh9xAhT?usp=drive_link" class="download-btn" target="_blank">
+              <i class="fas fa-download"></i> Open Folder
+            </a>
+          </div>
         </div>
+        
+        <!-- Academic CV Template Card -->
+        <div class="download-card">
+          <div class="download-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="download-content">
+            <h3 class="download-title">Academic CV Template</h3>
+            <p class="download-description">A professionally designed CV template specifically tailored for academic purposes. Stand out from the crowd with a well-organized and visually appealing CV format.</p>
+            <a href="https://drive.google.com/drive/folders/1pkuoiEevV2ZN_gDZdafZAlOS0pl6PPBx?usp=drive_link" class="download-btn" target="_blank">
+              <i class="fas fa-download"></i> Open Folder
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
     
     <!-- Professional Footer Section -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo-icon">S</div>
-                <div class="logo-text">Sam<span>Nordic</span></div>
-            </div>
-            
-            <div class="footer-links">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="#">Work</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-social">
-                <a href="https://www.facebook.com/SamithaTK94/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/msamdk" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://wa.me/94771114957" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-icon">S</div>
+          <div class="logo-text">Sam<span>Nordic</span></div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
-            <p>Master Student | Computer vision | Artificial Intelligence | Sustainable fisheries and Aquaculture</p>
+        <div class="footer-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
         </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/msamdk" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://wa.me/94771114957" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
+        <p>Master Student | Computer vision | Artificial Intelligence | Sustainable fisheries and Aquaculture</p>
+      </div>
     </footer>
+  </div>
+  
+  <!-- Font Awesome for icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  
+  <!-- JavaScript to toggle mobile menu -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
     
-    <!-- Font Awesome for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
