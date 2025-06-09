@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samitha Thilakarathna - Research</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
     /* Base styles */
     * {
@@ -310,7 +311,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
     <header>
       <div class="logo">
         <div class="logo-icon">S</div>
@@ -328,17 +328,48 @@
       </ul>
     </header>
 
-    <!-- Research Section -->
     <div class="research-section">
       <h2 class="section-title">Research</h2>
       
-      <!-- Research Item 1 -->
       <div class="research-item">
         <h3>Developing Computer Vision Models for Fish Re-Identification in Fish Sorting Belts on Fishing Vessels</h3>
         <p>The research is on the way, will update about the cool stuff soon.</p>
+        <div id="plotly-div" style="height: 500px;"></div>
+        <script>
+            var trace1 = {
+                x: [1, 2, 3], 
+                y: [4, 5, 6], 
+                z: [7, 8, 9],
+                mode: 'markers',
+                marker: {
+                    size: 12,
+                    color: 'rgb(255, 0, 0)',
+                    opacity: 0.8
+                },
+                type: 'scatter3d'
+            };
+            
+            var data = [trace1];
+            
+            var layout = {
+                margin: {
+                    l: 0,
+                    r: 0,
+                    b: 0,
+                    t: 0
+                },
+                scene: {
+                    xaxis:{title: 'Dimension 1'},
+                    yaxis:{title: 'Dimension 2'},
+                    zaxis:{title: 'Dimension 3'},
+                },
+                title: '3D t-SNE of Fine-Tuned 512-D Embeddings'
+            };
+            
+            Plotly.newPlot('plotly-div', data, layout);
+        </script>
       </div>
       
-      <!-- Research Item 2 -->
       <div class="research-item">
         <h3>Developing Biodegradable Solutions to Lobster Pots</h3>
         <p>Focusing on escape mechanisms for lobsters/fish to prevent ghost fishing and reduce micro-plastic pollution.</p>
@@ -346,7 +377,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-logo">
@@ -383,10 +413,8 @@
     </footer>
   </div>
   
-  <!-- Font Awesome for icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
   
-  <!-- JavaScript to toggle mobile menu -->
   <script>
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
@@ -397,4 +425,3 @@
   </script>
 </body>
 </html>
-
