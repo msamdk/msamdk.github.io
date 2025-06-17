@@ -243,6 +243,11 @@
             margin-top: 20px;
             border-left: 3px solid #fe6900;
             color: #cccccc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added for hover effect */
+        }
+        .new-sections .section-description:hover {
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
         }
         .new-sections .animated-icon {
             display: inline-block;
@@ -258,6 +263,64 @@
             max-width: 100%;
             margin-top: 15px;
             border-radius: 8px;
+        }
+
+        /* Styles for the News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .news-block {
+            background-color: #202020;
+            border-radius: 8px;
+            overflow: hidden;
+            border-left: 3px solid #fe6900;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-block img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .news-block-content {
+            padding: 25px;
+            color: #cccccc;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-block-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .news-block-content p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1; /* Allows text to take up available space */
+        }
+
+        .news-block-content .news-date {
+            font-size: 0.85rem;
+            color: #adadad;
+            text-align: right;
+            margin-top: auto; /* Pushes the date to the bottom */
         }
         
         /* ----------------------------------------
@@ -357,6 +420,9 @@
             .social-icons {
                 margin-top: 30px;
             }
+            .news-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust for smaller screens */
+            }
         }
         
         @media (max-width: 768px) {
@@ -406,32 +472,26 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <header>
-            <!-- Logo -->
             <div class="logo">
                 <div class="logo-icon">S</div>
                 <div class="logo-text">Sam<span>Nordic</span></div>
             </div>
             
-            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!-- Desktop/Nav Menu -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="career.html">Career</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
                 <li><a href="projects.html">Personal Projects</a></li>
-            </ul>
+                <li><a href="#news-section">News</a></li> </ul>
         </header>
         
-        <!-- Main Content -->
         <div class="main-content">
-            <!-- Left Column - Text Content -->
             <div class="left-column">
                 <div class="intro">
                     <h1>Hi I'm Samitha Thilakarathna</h1>
@@ -444,7 +504,6 @@
                     </p>
                 </div>
                 
-                <!-- Social Media Icons with Contact Information -->
                 <div class="social-icons">
                     <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
                         <i class="fab fa-facebook-f"></i>
@@ -467,15 +526,12 @@
                 </div>
             </div>
             
-            <!-- Right Column - Image -->
             <div class="right-column">
                 <img src="images/prof_im.png" alt="Samitha Thilakarathna" class="profile-image">
             </div>
         </div>
 
-        <!-- New Sections -->
         <div class="new-sections">
-            <!-- Research Interests -->
             <div class="section">
                 <h2 class="section-title">Research Interests</h2>
                 <div class="section-description">
@@ -487,7 +543,6 @@
                 </div>
             </div>
 
-            <!-- Passion -->
             <div class="section">
                 <h2 class="section-title">Passion</h2>
                 <div class="section-description">
@@ -502,7 +557,6 @@
                 </div>
             </div>
 
-            <!-- Goals -->
             <div class="section">
                 <h2 class="section-title">Goals</h2>
                 <div class="section-description">
@@ -514,7 +568,47 @@
             </div>
         </div>
 
-        <!-- Professional Footer Section -->
+        <div class="new-sections" id="news-section">
+            <h2 class="section-title">Latest News <i class="fas fa-newspaper animated-icon"></i></h2>
+            <div class="news-grid">
+                <div class="news-block">
+                    <img src="https://via.placeholder.com/400x200?text=News+Image+1" alt="News Item 1">
+                    <div class="news-block-content">
+                        <h3>New Research Project on Marine Robotics</h3>
+                        <p>Excited to announce the start of a new research project focusing on autonomous underwater vehicles for fisheries monitoring. This project aims to integrate advanced computer vision with robotic platforms.</p>
+                        <span class="news-date">June 10, 2025</span>
+                    </div>
+                </div>
+
+                <div class="news-block">
+                    <img src="https://via.placeholder.com/400x200?text=News+Image+2" alt="News Item 2">
+                    <div class="news-block-content">
+                        <h3>Presented at Nordic AI Conference</h3>
+                        <p>Had a great time presenting my work on real-time fish species identification using edge AI at the recent Nordic AI Conference. The feedback was incredibly valuable!</p>
+                        <span class="news-date">May 28, 2025</span>
+                    </div>
+                </div>
+
+                <div class="news-block">
+                    <img src="https://via.placeholder.com/400x200?text=News+Image+3" alt="News Item 3">
+                    <div class="news-block-content">
+                        <h3>Collaboration with DTU Compute</h3>
+                        <p>Thrilled to begin a new collaboration with researchers from DTU Compute on optimizing deep learning models for energy-efficient deployment in remote sensing applications.</p>
+                        <span class="news-date">April 15, 2025</span>
+                    </div>
+                </div>
+
+                <div class="news-block">
+                    <img src="https://via.placeholder.com/400x200?text=News+Image+4" alt="News Item 4">
+                    <div class="news-block-content">
+                        <h3>Upcoming Workshop on CV in Aquaculture</h3>
+                        <p>Planning to host a workshop on the applications of computer vision in modern aquaculture practices. Stay tuned for dates and registration details!</p>
+                        <span class="news-date">March 5, 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -554,7 +648,6 @@
         </footer>
     </div>
     
-    <!-- JavaScript to toggle mobile menu -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
