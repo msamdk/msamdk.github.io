@@ -1,662 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>Samitha Thilakarathna - Portfolio</title>
-    <style>
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-        
-        body {
-            background-color: #171717;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 85%;
-            max-width: 1400px;
-            margin: 0 auto;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* ----------------------------------------
-         * Sticky, Blurred Header + Mobile Menu
-         * ---------------------------------------- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            background-color: rgba(23, 23, 23, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #fe6900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            font-weight: bold;
-            color: white;
-            margin-right: 10px;
-            transition: transform 0.3s ease; /* For the rotation effect */
-        }
-        
-        /* Slight rotation on hover for the logo-icon */
-        .logo:hover .logo-icon {
-            transform: rotate(10deg);
-        }
-        
-        .logo-text {
-            font-size: 1.2rem;
-        }
-        
-        .logo-text span {
-            color: #ffffff;
-            font-weight: bold;
-        }
-        
-        /* Navigation menu (desktop) */
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-menu li {
-            margin-left: 30px;
-            position: relative;
-        }
-        
-        .nav-menu a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-            padding: 8px 0;
-            position: relative;
-        }
-        
-        /* Hover underline effect */
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #fe6900;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-menu a:hover {
-            color: #fe6900;
-        }
-        
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-        
-        /* Mobile menu button (hamburger) */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        /* ----------------------------------------
-         * Main Content
-         * ---------------------------------------- */
-        .main-content {
-            display: flex;
-            flex: 1;
-            margin-top: 50px;
-        }
-        
-        /* Left column */
-        .left-column {
-            width: 45%;
-            padding-right: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .intro {
-            margin-bottom: 40px;
-        }
-        
-        .intro h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .intro p {
-            color: #cccccc;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-        
-        .contact-btn {
-            display: inline-block;
-            background-color: #fe6900;
-            color: white;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .contact-btn:hover {
-            background-color: #fe6900;
-        }
-        
-        /* Social icons */
-        .social-icons {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .social-icons a {
-            color: #adadad;
-            font-size: 1.5rem;
-            margin-right: 25px;
-            margin-bottom: 15px;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .social-icons a:hover {
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .social-icons a:hover::after {
-            content: attr(title);
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            z-index: 10;
-        }
-        
-        /* Right column (image) */
-        .right-column {
-            width: 55%;
-            position: relative;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* Additional new sections */
-        .new-sections {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #333;
-        }
-        .new-sections .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #fe6900;
-        }
-        .new-sections .section-description {
-            background-color: #202020;
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 3px solid #fe6900;
-            color: #cccccc;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added for hover effect */
-        }
-        .new-sections .section-description:hover {
-            transform: translateY(-5px); /* Lift effect */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
-        }
-        .new-sections .animated-icon {
-            display: inline-block;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-            color: #fe6900;
-            font-size: 1.5rem;
-        }
-        .new-sections .animated-icon:hover {
-            transform: scale(1.2);
-        }
-        .new-sections img {
-            max-width: 100%;
-            margin-top: 15px;
-            border-radius: 8px;
-        }
-
-        /* Styles for the News Section */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .news-block {
-            background-color: #202020;
-            border-radius: 8px;
-            overflow: hidden;
-            border-left: 3px solid #fe6900;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-block:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .news-block img {
-            width: 100%;
-            height: 200px; /* Fixed height for consistency */
-            object-fit: cover;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .news-block-content {
-            padding: 25px;
-            color: #cccccc;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-block-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .news-block-content p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            flex-grow: 1; /* Allows text to take up available space */
-        }
-
-        .news-block-content .news-date {
-            font-size: 0.85rem;
-            color: #adadad;
-            text-align: right;
-            margin-top: auto; /* Pushes the date to the bottom */
-        }
-        
-        /* ----------------------------------------
-         * Footer
-         * ---------------------------------------- */
-        .footer {
-            margin-top: 80px;
-            border-top: 1px solid #333;
-            padding: 50px 0 20px;
-            background-color: #121212;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo .logo-icon {
-            width: 35px;
-            height: 35px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links li {
-            margin-right: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #adadad;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #fe6900;
-        }
-        
-        .footer-social {
-            display: flex;
-        }
-        
-        .footer-social a {
-            color: #adadad;
-            font-size: 1.2rem;
-            margin-right: 20px;
-            transition: all 0.3s;
-        }
-        
-        .footer-social a:hover {
-            color: #fe6900;
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #222;
-            color: #777;
-            font-size: 0.85rem;
-        }
-        
-        .footer-bottom p {
-            margin-bottom: 10px;
-        }
-        
-        /* ----------------------------------------
-         * Responsive
-         * ---------------------------------------- */
-        @media (max-width: 992px) {
-            .main-content {
-                flex-direction: column;
-            }
-            .left-column, .right-column {
-                width: 100%;
-                padding-right: 0;
-            }
-            .right-column {
-                margin-top: 40px;
-                height: 400px;
-            }
-            .social-icons {
-                margin-top: 30px;
-            }
-            .news-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust for smaller screens */
-            }
-        }
-        
-        @media (max-width: 768px) {
-            /* Hide desktop nav, show mobile button */
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: rgba(23, 23, 23, 0.95);
-                flex-direction: column;
-                padding: 20px 0;
-                border-radius: 0 0 10px 10px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-                z-index: 100;
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .nav-menu li {
-                margin: 10px 0;
-                text-align: center;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-logo {
-                margin: 0 auto 20px;
-            }
-            .footer-links ul {
-                justify-content: center;
-            }
-            .footer-social {
-                justify-content: center;
-                margin-top: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samitha N. Thilakarathna | AI & Fisheries Monitoring</title>
+  <style>
+    body {margin: 0; font-family: 'Segoe UI', Arial, sans-serif; color: #fff; background: #141414;}
+    .hero {
+      background: url('Hello-I-m-Samitha.jpg') no-repeat center center/cover;
+      height: 430px;
+      display: flex; flex-direction: column; justify-content: end;
+      padding: 3vw;
+      text-shadow: 0 2px 12px #000;
+    }
+    .hero h1 { font-size: 2.5em; margin: 0.3em 0 0.2em 0; font-weight: 600;}
+    .hero p { font-size: 1.1em; margin: 0 0 1.5em 0; font-weight: 400;}
+    .section-dark, .section-light { padding: 48px 10vw 32px 10vw; }
+    .section-dark { background: #141414;}
+    .section-light { background: #f3f8ef; color: #222; }
+    .whoiam-content {
+      display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;
+    }
+    .whoiam-content .left {flex: 2;}
+    .whoiam-content .right { flex: 1; min-width: 220px;}
+    strong { color: #a2e23e;}
+    .cta-btn {
+      background: #9ce22c; color: #222; 
+      font-weight: bold; padding: 0.9em 1.4em; border: none; border-radius: 28px; 
+      font-size: 1em; margin-top: 14px; display:inline-block; box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #7cc91d; color: #fff; }
+    .my-background p {margin-top:0; margin-bottom:12px;}
+    .learning-curve-area {
+      padding: 0 0 40px 0;
+      display: flex; flex-wrap: wrap; gap: 30px; align-items: center; justify-content: space-between;
+      background: #282e22;
+    }
+    .learning-curve-area .photo { flex: 1; min-width:220px; text-align:center;}
+    .learning-curve-area .curve-img { flex: 3; min-width:300px;}
+    .learning-curve-area img {max-width: 100%; border-radius: 12px;}
+    .special-section { background: #708159; color: #fff; padding: 50px 10vw 40px 10vw;}
+    .special-section p {margin-bottom: 12px;}
+    .footer-section {
+      background: #0c0d0a;
+      color: #fff; padding: 40px 10vw;
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+    }
+    .footer-section .contacts {flex: 2;}
+    .footer-section .socials {flex: 1; text-align: right;}
+    .footer-section a {color: #a2e23e; text-decoration: none; margin: 0 10px; font-size: 1.6em;}
+    /* Responsive adjustments */
+    @media (max-width:780px) {
+      .section-dark, .section-light, .special-section, .footer-section {padding: 32px 4vw;}
+      .whoiam-content, .learning-curve-area, .footer-section {flex-direction: column;}
+      .footer-section .socials {text-align: left;}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <div class="logo-icon">S</div>
-                <div class="logo-text">Sam<span>Nordic</span></div>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
 
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="career.html">Career</a></li>
-                <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="projects.html">Personal Projects</a></li>
-                
-        </header>
-        
-        <div class="main-content">
-            <div class="left-column">
-                <div class="intro">
-                    <h1>Hi I'm Samitha Thilakarathna</h1>
-                    <p>
-                        I'm a Masters graduate at Technical University of Denmark (DTU Aqua), focused on Computer vision and AI applications in fisheries. 
-                        Learning new things has been my new passion recently when i started learning about artificial intelligence. 
-                        I am also a Graphic Designer and a 2D animator who contributes to different projects to convey scientific information in a 
-                        creative and engaging way. 
-                    </p>
-                </div>
-                
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/msamdk" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://wa.me/94771114957" title="WhatsApp: +94 771114957">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="mailto:msam@aqua.dtu.dk" title="Office Email: msam@aqua.dtu.dk">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="mailto:samitha.nuwan34@gmail.com" title="Personal Email: samitha.nuwan34@gmail.com">
-                        <i class="fas fa-envelope-open"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="right-column">
-                <img src="images/prof_im.png" alt="Samitha Thilakarathna" class="profile-image">
-            </div>
-        </div>
+  <!-- Hero Section -->
+  <div class="hero">
+      <h1>Hello, I'm<br>Samitha</h1>
+      <p>PhD Student at DTU Aqua,<br> Technical University of Denmark</p>
+  </div>
 
-        <div class="new-sections">
-            <div class="section">
-                <h2 class="section-title">Research Interests</h2>
-                <div class="section-description">
-                    <i class="fas fa-flask animated-icon"></i>
-                    <p>
-                        My research primarily focuses on computer vision and deep learning applications. Currently, I am applying these advanced techniques to sustainable fisheries and aquaculture, aiming to address critical challenges in fish catch monitoring. With the rapid evolution of AI, it is imperative to develop innovative solutions that enable fully documented and transparent fisheries operations, ultimately contributing to more regulated and environmentally responsible practices.
-                    </p>
-                    
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Passion</h2>
-                <div class="section-description">
-                    <i class="fas fa-heart animated-icon"></i>
-                    <p>
-                        I am deeply passionate about exploring complex concepts in computer vision and their practical applications in real-world systems, particularly through edge computing. My focus lies in developing innovative solutions that leverage lightweight deep learning models, ensuring high efficiency with minimal computational demand.
-
-                        By integrating advanced AI techniques with edge devices, I aim to contribute to the sustainable utilization of energy while enabling real-time processing and decision-making in resource-constrained environments. This approach is particularly crucial in domains such as fisheries, aquaculture, and environmental monitoring, where AI-driven insights can enhance efficiency, automation, and sustainability.
-
-                        Through my work, I strive to push the boundaries of deep learning applications, making cutting-edge AI more accessible, efficient, and impactful across various industries.
-                    </p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Goals</h2>
-                <div class="section-description">
-                    <i class="fas fa-bullseye animated-icon"></i>
-                    <p>
-                        My goal is to advance the field of computer vision by developing intelligent, efficient, and scalable AI solutions that seamlessly integrate with real-world systems.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="new-sections" id="news-section">
-            <h2 class="section-title">Latest News <i class="fas fa-newspaper animated-icon"></i></h2>
-            <div class="news-grid">
-                <div class="news-block">
-                    <img src="images/defence.JPEG" alt="News">
-                    <div class="news-block-content">
-                        <h3>Completed my Masters Defence</h3>
-                        <p>This was about fish Re-Identification in the perspective of fisheries leading towards the broaded goal of smart fisheries</p>
-                        <span class="news-date">July 04, 2025</span>
-                    </div>
-                </div>
-                <div class="news-block">
-                    <img src="images/IMG_0331.jpg" alt="News">
-                    <div class="news-block-content">
-                        <h3>Animal Re-Identification Tutorial session CVPR 2025 Nashville</h3>
-                        <p>I had the opportunity to participate in a virtual session on Animal Re-Identification held by CVPR 2025 Nashville</p>
-                        <span class="news-date">June 12, 2025</span>
-                    </div>
-                </div>
-
-                <div class="news-block">
-                    <img src="images/IMG_0048.JPG" alt="News">
-                    <div class="news-block-content">
-                        <h3>AquaVRium in Naturmødet 2025</h3>
-                        <p> I had a great experience is assisting the VR experience of a bottom trawl presented with researchers of section of Fisheries Technology in DTU Aqua</p>
-                        <span class="news-date">May 22, 2025</span>
-                    </div>
-                </div>
-
-                <div class="news-block">
-                    <img src="images/aau.jpg" alt="News">
-                    <div class="news-block-content">
-                        <h3>Workshop on Marine Environmental Monitoring and Assessment using AI- AAU Denmark</h3>
-                        <p>I had a great opportunity to participate  in this workshop to gain insights in new startups as well as well established companies in AI</p>
-                        <span class="news-date">May 13, 2025</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">S</div>
-                    <div class="logo-text">Sam<span>Nordic</span></div>
-                </div>
-                
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-social">
-                    <a href="https://www.facebook.com/SamithaTK94/" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/samitha-thilakarathna/" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/msamdk" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://wa.me/94771114957" title="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Samitha Thilakarathna. All Rights Reserved.</p>
-                <p>Master Student | Computer vision | Artificial Intelligence | Sustainable Fisheries and Aquaculture</p>
-            </div>
-        </footer>
+  <!-- Who I Am Section -->
+  <div class="section-dark">
+    <div class="whoiam-content">
+      <div class="left">
+        <h2>Who I Am and What I Do</h2>
+        <p><strong>My name is Samitha N. Thilakarathna</strong><br>
+        I’m a PhD student at DTU Aqua, specializing in cutting-edge artificial intelligence solutions for automated fisheries catch monitoring.</p>
+        <p>
+          My research spans the breadth of pelagic, demersal trawl, and gillnet fisheries, targeting the development of advanced systems for species identification, quantification, and comprehensive documentation.
+        </p>
+        <p>
+          By harnessing AI technologies, my work strives for 100% coverage in monitoring and data accuracy—driving the transformation toward transparent, sustainable fisheries management for the future.
+        </p>
+        <a class="cta-btn" href="#">Watch my latest Documentary</a>
+      </div>
+      <div class="right">
+        <!-- Add a project/research image here if you have one -->
+        <img src="your-research-image.jpg" alt="Research Collage" style="border-radius:14px;max-width:100%;box-shadow:0 3px 16px rgba(0,0,0,0.16);"/>
+      </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+  </div>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
+  <!-- My Background -->
+  <div class="section-light my-background">
+    <h2>My Background</h2>
+    <p>
+      I began my academic journey in Fisheries and Marine Science (BSc.) at the University of Ruhuna in Sri Lanka, gaining a comprehensive understanding of the fishing industry underpinned by rigorous training in mathematics and statistics.
+    </p>
+    <p>
+      Building on this strong foundation, I pursued a Master's degree at DTU Aqua, Technical University of Denmark, focusing on Sustainable Fisheries and Aquaculture. It was here that my fascination with artificial intelligence and computer vision first took root, culminating in a master's thesis on Fish Re-Identification using deep learning techniques—specifically, Vision Transformers.
+    </p>
+    <p>
+      Now, as a PhD student at DTU Aqua, my work centers on advanced computer vision and AI applications for automated fisheries monitoring. This scientific journey has been both transformative and deeply rewarding, thanks in large part to the inspiring mentorship and collaborative spirit within DTU. The future holds many exciting developments, and I am eager to contribute innovative solutions to the challenges of fisheries science.
+    </p>
+  </div>
+
+  <!-- Learning Curve Section -->
+  <div class="learning-curve-area">
+    <div class="photo">
+      <img src="portrait2.jpg" alt="Samitha, DTU Aqua" style="max-width:210px;"/>
+    </div>
+    <div class="curve-img">
+      <h2 style="color:#a2e23e;">My learning Curve</h2>
+      <img src="learning-curve.png" alt="Learning curve graph" />
+    </div>
+  </div>
+
+  <!-- Special Projects Section -->
+  <div class="special-section">
+    <h2>Special Projects</h2>
+    <p><strong>Offshore Wind Farms: Nurturing Fish Spawning Grounds</strong></p>
+    <!-- Embed YouTube or Video if available -->
+    <a class="cta-btn" href="#">View Publication in DTU Orbit</a>
+  </div>
+
+  <!-- Footer - Contact -->
+  <div class="footer-section">
+    <div class="contacts">
+      <h2 style="color:#a2e23e;">Get in Touch</h2>
+      <p>
+        <strong>Email:</strong><br>
+        msam@aqua.dtu.dk
+      </p>
+      <p>
+        <strong>Office address:</strong><br>
+        Section for Fisheries Technology<br>
+        Danmarks Tekniske Universitet<br>
+        Willemoesvej 2, Building Hovedbygning,<br>
+        9850 Hirtshals
+      </p>
+    </div>
+    <div class="socials">
+      <p>Follow me on social media</p>
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Twitter">t</a>
+      <a href="#" aria-label="Instagram">i</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+    </div>
+  </div>
+
 </body>
 </html>
