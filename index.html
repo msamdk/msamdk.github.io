@@ -277,8 +277,13 @@
     @media (max-width: 768px) {
       
       /* General Mobile Styles */
-      h1 { font-size: 2.5rem; }
-      h2 { font-size: 2rem; }
+      h1 {
+        /* min size, preferred (scales with screen), max size */
+        font-size: clamp(2.2rem, 10vw, 3.5rem); 
+      }
+      h2 {
+        font-size: 2rem;
+      }
 
       .hero,
       .who-i-am,
@@ -292,17 +297,28 @@
       /* Section-Specific Overrides */
       .hero {
         margin-top: 2rem;
+        padding: 40px 24px; 
       }
       .hero .container {
         padding-bottom: 40px;
+        max-width: 100%; /* Allow container to fill the padded space */
+      }
+      .hero p {
+          font-size: clamp(1rem, 4vw, 1.5rem);
       }
 
       .who-i-am {
         flex-direction: column;
+        gap: 2rem;
+      }
+      .who-i-am .text-content,
+      .who-i-am .gif-placeholders {
+          flex-basis: 100%;
       }
 
       .learning-curve-body {
         flex-direction: column;
+        gap: 2rem;
       }
       .portrait-holder {
         width: 200px;
