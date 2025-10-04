@@ -2,95 +2,256 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Samitha N. Thilakarathna | AI & Fisheries Monitoring</title>
+
+  <!-- Import TT Commons Pro Expanded font substitute from Google Fonts (closest match) -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet" />
+
   <style>
-    body {margin: 0; font-family: 'Segoe UI', Arial, sans-serif; color: #fff; background: #141414;}
+    /* Base Reset and Typography */
+    body {
+      margin: 0; 
+      font-family: 'Oswald', sans-serif; /* Use Oswald as TT Commons Pro substitute */
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    /* Page Wrapper for layout constraints */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero Section */
     .hero {
       background: url('Hello-I-m-Samitha.jpg') no-repeat center center/cover;
       height: 430px;
-      display: flex; flex-direction: column; justify-content: end;
-      padding: 3vw;
-      text-shadow: 0 2px 12px #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3vw 24px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.9);
     }
-    .hero h1 { font-size: 2.5em; margin: 0.3em 0 0.2em 0; font-weight: 600;}
-    .hero p { font-size: 1.1em; margin: 0 0 1.5em 0; font-weight: 400;}
-    .section-dark, .section-light { padding: 48px 10vw 32px 10vw; }
-    .section-dark { background: #141414;}
-    .section-light { background: #f3f8ef; color: #222; }
-    .whoiam-content {
-      display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;
+    .hero h1 {
+      color: #fff;
+      font-size: 3.375rem;
+      margin: 0 0 0.25em 0;
+      font-weight: 500;
     }
-    .whoiam-content .left {flex: 2;}
-    .whoiam-content .right { flex: 1; min-width: 220px;}
-    strong { color: #a2e23e;}
-    .cta-btn {
-      background: #9ce22c; color: #222; 
-      font-weight: bold; padding: 0.9em 1.4em; border: none; border-radius: 28px; 
-      font-size: 1em; margin-top: 14px; display:inline-block; box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    .hero p {
+      color: #fff;
+      font-size: 1.4rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Section Style */
+    section {
+      margin: 4rem 0;
+    }
+
+    /* Who I Am and What I Do Section */
+    .whoiam {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .whoiam .text {
+      flex: 1 1 55%;
+      color: #fff;
+    }
+    .whoiam .text p {
+      font-weight: 500;
+      margin-bottom: 1.2em;
+    }
+    .whoiam .text strong {
+      font-weight: 600;
+    }
+    .whoiam .image-holder {
+      flex: 1 1 38%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .whoiam .image-holder .gif-placeholder {
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      background-color: #222;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 3px 8px rgba(0,0,0,.5);
+    }
+    /* To place actual gif inside placeholder structure */
+    .whoiam .image-holder .gif-placeholder img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    /* Button style consistent with design */
+    .btn {
+      background-color: #93cb2e;
+      color: black;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 9999px;
       text-decoration: none;
-      transition: background 0.2s;
+      display: inline-block;
+      box-shadow: 0 3px 10px rgba(147,203,46,0.5);
+      margin-top: 14px;
+      transition: background-color 0.3s ease;
     }
-    .cta-btn:hover { background: #7cc91d; color: #fff; }
-    .my-background p {margin-top:0; margin-bottom:12px;}
-    .learning-curve-area {
-      padding: 0 0 40px 0;
-      display: flex; flex-wrap: wrap; gap: 30px; align-items: center; justify-content: space-between;
-      background: #282e22;
+    .btn:hover, .btn:focus {
+      background-color: #7fb123;
+      box-shadow: 0 4px 14px rgba(127,177,35,0.7);
+      color: black;
+      outline: none;
     }
-    .learning-curve-area .photo { flex: 1; min-width:220px; text-align:center;}
-    .learning-curve-area .curve-img { flex: 3; min-width:300px;}
-    .learning-curve-area img {max-width: 100%; border-radius: 12px;}
-    .special-section { background: #708159; color: #fff; padding: 50px 10vw 40px 10vw;}
-    .special-section p {margin-bottom: 12px;}
-    .footer-section {
-      background: #0c0d0a;
-      color: #fff; padding: 40px 10vw;
-      display: flex; flex-wrap: wrap; justify-content: space-between;
+
+    /* Background and font colors for other sections */
+    .background-section {
+      background-color: #f5f8ef;
+      color: #000;
+      padding: 48px 24px;
+      border-radius: 8px;
     }
-    .footer-section .contacts {flex: 2;}
-    .footer-section .socials {flex: 1; text-align: right;}
-    .footer-section a {color: #a2e23e; text-decoration: none; margin: 0 10px; font-size: 1.6em;}
-    /* Responsive adjustments */
-    @media (max-width:780px) {
-      .section-dark, .section-light, .special-section, .footer-section {padding: 32px 4vw;}
-      .whoiam-content, .learning-curve-area, .footer-section {flex-direction: column;}
-      .footer-section .socials {text-align: left;}
+    .background-section h2 {
+      color: #000;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .background-section p {
+      margin-bottom: 1em;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* Learning Curve Section Styling */
+    .learning-curve-section {
+      background-color: #2b3352;
+      border-radius: 8px;
+      padding: 48px 24px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .learning-curve-section .portrait {
+      flex: 1 1 200px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .learning-curve-section .portrait img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .learning-curve-section .curve-image {
+      flex: 3 1 60%;
+    }
+    .learning-curve-section h2 {
+      font-weight: 600;
+      color: #93cb2e;
+      margin-bottom: 24px;
+    }
+
+    /* Special Projects Section */
+    .special-projects-section {
+      background-color: #455f38;
+      border-radius: 8px;
+      padding: 48px 24px;
+      color: white;
+    }
+    .special-projects-section h2 {
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: white;
+    }
+    .special-projects-section p {
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 24px 24px 24px;
+      background-color: #000;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 36px;
+      font-weight: 500;
+    }
+    footer .contact-info {
+      flex: 1 1 400px;
+    }
+    footer .social-links {
+      flex: 0 0 180px;
+      text-align: right;
+    }
+    footer .social-links a {
+      margin: 0 8px;
+      color: #93cb2e;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .whoiam {
+        flex-direction: column;
+      }
+      .learning-curve-section {
+        flex-direction: column;
+      }
+      footer {
+        text-align: center;
+        flex-direction: column;
+        gap: 24px;
+      }
+      footer .social-links {
+        text-align: center;
+        flex: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <div class="hero">
-      <h1>Hello, I'm<br>Samitha</h1>
-      <p>PhD Student at DTU Aqua,<br> Technical University of Denmark</p>
-  </div>
+  <section class="hero" role="banner" aria-label="Introduction">
+    <h1>Hello, I'm Samitha</h1>
+    <p>PhD Student at DTU Aqua, Technical University of Denmark</p>
+  </section>
 
-  <!-- Who I Am Section -->
-  <div class="section-dark">
-    <div class="whoiam-content">
-      <div class="left">
-        <h2>Who I Am and What I Do</h2>
-        <p><strong>My name is Samitha N. Thilakarathna</strong><br>
-        I’m a PhD student at DTU Aqua, specializing in cutting-edge artificial intelligence solutions for automated fisheries catch monitoring.</p>
-        <p>
-          My research spans the breadth of pelagic, demersal trawl, and gillnet fisheries, targeting the development of advanced systems for species identification, quantification, and comprehensive documentation.
-        </p>
-        <p>
-          By harnessing AI technologies, my work strives for 100% coverage in monitoring and data accuracy—driving the transformation toward transparent, sustainable fisheries management for the future.
-        </p>
-        <a class="cta-btn" href="#">Watch my latest Documentary</a>
-      </div>
-      <div class="right">
-        <!-- Add a project/research image here if you have one -->
-        <img src="images/IMG_8421.jpg" alt="Research Collage" style="border-radius:14px;max-width:100%;box-shadow:0 3px 16px rgba(0,0,0,0.16);"/>
-      </div>
+  <section class="container whoiam" aria-label="Who I am and what I do">
+    <div class="text">
+      <h2>Who I Am and What I Do</h2>
+      <p><strong>My name is Samitha N. Thilakarathna</strong><br />
+      I’m a PhD student at DTU Aqua, specializing in cutting-edge artificial intelligence solutions for automated fisheries catch monitoring.</p>
+      <p>
+      My research spans the breadth of pelagic, demersal trawl, and gillnet fisheries, targeting the development of advanced systems for species identification, quantification, and comprehensive documentation.
+      </p>
+      <p>
+      By harnessing AI technologies, my work strives for 100% coverage in monitoring and data accuracy—driving the transformation toward transparent, sustainable fisheries management for the future.
+      </p>
+      <a href="#" class="btn" role="button">Watch my latest Documentary</a>
     </div>
-  </div>
+    <div class="image-holder" aria-label="Research GIFs examples">
+      <div class="gif-placeholder" aria-label="Research GIF 1">
+        <!-- Put <img src="gif1.gif"> here when ready -->
+      </div>
+      <div class="gif-placeholder" aria-label="Research GIF 2"></div>
+      <div class="gif-placeholder" aria-label="Research GIF 3"></div>
+    </div>
+  </section>
 
-  <!-- My Background -->
-  <div class="section-light my-background">
+  <section class="background-section container" aria-label="My Background">
     <h2>My Background</h2>
     <p>
       I began my academic journey in Fisheries and Marine Science (BSc.) at the University of Ruhuna in Sri Lanka, gaining a comprehensive understanding of the fishing industry underpinned by rigorous training in mathematics and statistics.
@@ -101,51 +262,43 @@
     <p>
       Now, as a PhD student at DTU Aqua, my work centers on advanced computer vision and AI applications for automated fisheries monitoring. This scientific journey has been both transformative and deeply rewarding, thanks in large part to the inspiring mentorship and collaborative spirit within DTU. The future holds many exciting developments, and I am eager to contribute innovative solutions to the challenges of fisheries science.
     </p>
-  </div>
+  </section>
 
-  <!-- Learning Curve Section -->
-  <div class="learning-curve-area">
-    <div class="photo">
-      <img src="portrait2.jpg" alt="Samitha, DTU Aqua" style="max-width:210px;"/>
+  <section class="learning-curve-section container" aria-label="My learning curve">
+    <div class="portrait">
+      <img src="portrait2.jpg" alt="Portrait of Samitha N. Thilakarathna"/>
     </div>
-    <div class="curve-img">
-      <h2 style="color:#a2e23e;">My learning Curve</h2>
-      <img src="learning-curve.png" alt="Learning curve graph" />
+    <div class="curve-image">
+      <h2>My learning Curve</h2>
+      <img src="images/learning curve.png" alt="Graph showing the learning curve of AI experience vs time"/>
     </div>
-  </div>
+  </section>
 
-  <!-- Special Projects Section -->
-  <div class="special-section">
+  <section class="special-projects-section container" aria-label="Special Projects">
     <h2>Special Projects</h2>
-    <p><strong>Offshore Wind Farms: Nurturing Fish Spawning Grounds</strong></p>
-    <!-- Embed YouTube or Video if available -->
-    <a class="cta-btn" href="#">View Publication in DTU Orbit</a>
-  </div>
+    <p>Offshore Wind Farms: Nurturing Fish Spawning Grounds</p>
+    <a href="#" class="btn" role="button">View Publication in DTU Orbit</a>
+  </section>
 
-  <!-- Footer - Contact -->
-  <div class="footer-section">
-    <div class="contacts">
-      <h2 style="color:#a2e23e;">Get in Touch</h2>
-      <p>
-        <strong>Email:</strong><br>
-        msam@aqua.dtu.dk
-      </p>
-      <p>
-        <strong>Office address:</strong><br>
-        Section for Fisheries Technology<br>
-        Danmarks Tekniske Universitet<br>
-        Willemoesvej 2, Building Hovedbygning,<br>
-        9850 Hirtshals
+  <footer role="contentinfo">
+    <div class="contact-info" aria-label="Contact information">
+      <h2>Get in Touch</h2>
+      <p><strong>Email:</strong> msam@aqua.dtu.dk</p>
+      <p><strong>Office address:</strong><br/>
+         Section for Fisheries Technology<br/>
+         Danmarks Tekniske Universitet<br/>
+         Willemoesvej 2, Building Hovedbygning,<br/>
+         9850 Hirtshals
       </p>
     </div>
-    <div class="socials">
+    <div class="social-links" aria-label="Social media links">
       <p>Follow me on social media</p>
       <a href="#" aria-label="Facebook">f</a>
       <a href="#" aria-label="Twitter">t</a>
       <a href="#" aria-label="Instagram">i</a>
       <a href="#" aria-label="LinkedIn">in</a>
     </div>
-  </div>
+  </footer>
 
 </body>
 </html>
