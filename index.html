@@ -175,25 +175,34 @@
     .special-projects-section {
       background-color: #455f38;
       display: flex;
-      flex-direction: row; /* Changed to row */
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
     }
+    
     .project-text {
       flex-basis: 50%;
       text-align: left;
     }
     
-    .project-description {
-      font-size: 0.65rem; /* Smaller than the default 1.1rem */
-      color: #e0e0e0; /* A slightly lighter color to de-emphasize it */
-      margin-top: -0.5em; /* Reduces the space below the main paragraph title */
+    /* Style for the main title paragraph */
+    .project-text p {
+      font-size: 1.1rem; /* A more reasonable default size */
+      line-height: 1.6;
+    }
+    
+    /* Style for the smaller description paragraph */
+    .project-text .project-description {
+      font-size: 0.95rem; /* The smaller font size */
+      color: #e0e0e0;
+      line-height: 1.5;
+      margin-top: 1em;
     }
     
     .video-placeholder {
       flex-basis: 45%;
-      height: 350px;
+      height: 400px;
       background-color: #93cb2e;
       border-radius: 8px;
       display: flex;
@@ -202,8 +211,11 @@
       color: #000;
       font-weight: 500;
     }
-    .special-projects-section p {
-        font-size: 1.4rem;
+    
+    .video-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
     }
     
     /* --- COMPONENTS --- */
