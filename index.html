@@ -91,17 +91,16 @@
       flex: 1 1 55%;
     }
     .who-i-am .gif-placeholders {
-      flex: 1 1 25%; /* Adjusted for a better visual balance */
+      flex: 1 1 25%;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
     
-    /* --- FIX: GIF STYLES --- */
     .gif-box {
-      position: relative; /* CRITICAL FIX: Allows absolute positioning of the image inside */
+      position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 aspect ratio */
+      padding-top: 56.25%;
       background-color: #222;
       border-radius: 8px;
       box-shadow: 0 3px 8px rgba(0,0,0,.5);
@@ -113,7 +112,7 @@
       width: 100%;
       height: 100%;
       border-radius: 8px;
-      object-fit: cover; /* Prevents image from stretching */
+      object-fit: cover;
     }
 
     /* My Background Section */
@@ -125,13 +124,26 @@
       justify-content: center;
     }
     
-    /* Learning Curve Section */
+    /* Learning Curve Section - UPDATED */
     .learning-curve-section {
       background-color: #2b3352;
+      display: flex;
+      flex-direction: column; /* Changed to column */
+      justify-content: center;
+      gap: 2rem; /* Space between title and body */
+    }
+    .learning-curve-section h2 {
+      text-align: left;
+      margin-bottom: 0;
+      padding-top: 0;
+      width: 100%;
+    }
+    .learning-curve-body {
       display: flex;
       align-items: center;
       justify-content: space-around;
       gap: 40px;
+      width: 100%;
     }
     .portrait-holder {
       flex-shrink: 0;
@@ -151,33 +163,37 @@
     }
     .learning-curve-content {
       flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
     }
-    .learning-curve-section h2 {
-      text-align: left;
-      margin-bottom: 2em;
-      padding-top: 70px;
-      width: 100%;
-    }
-    .learning-curve-section img {
+    .learning-curve-content img {
       width: 100%;
       max-width: 800px;
-      margin: 0; /* Align with left-aligned title */
       height: auto;
       border-radius: 8px;
     }
 
-    /* Special Projects Section */
+    /* Special Projects Section - UPDATED */
     .special-projects-section {
       background-color: #455f38;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex-direction: row; /* Changed to row */
       align-items: center;
-      text-align: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .project-text {
+      flex-basis: 50%;
+      text-align: left;
+    }
+    .video-placeholder {
+      flex-basis: 45%;
+      height: 400px;
+      background-color: #93cb2e;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-weight: 500;
     }
     .special-projects-section p {
         font-size: 1.4rem;
@@ -248,11 +264,11 @@
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       /* Further adjustments needed for mobile view with fixed heights */
-      .who-i-am, .learning-curve-section {
+      .who-i-am, .learning-curve-section, .special-projects-section {
         flex-direction: column;
         height: auto; /* Allow height to adjust on mobile */
       }
-      .hero, .background-section, .special-projects-section {
+      .hero, .background-section {
         height: auto; /* Allow height to adjust on mobile */
       }
       footer {
@@ -307,19 +323,25 @@
     </section>
 
     <section class="learning-curve-section" aria-labelledby="learning-curve-heading">
-        <div class="portrait-holder">
-          <img src="images/IMG_8428.jpg" alt="Portrait of Samitha N. Thilakarathna" class="round-portrait"/>
-        </div>
-        <div class="learning-curve-content">
-          <h2 id="learning-curve-heading">My Learning Curve</h2>
-          <img src="images/learning curve.png" alt="A graph showing my learning curve in AI over time.">
+        <h2 id="learning-curve-heading">My Learning Curve</h2>
+        <div class="learning-curve-body">
+            <div class="portrait-holder">
+                <img src="images/IMG_8428.jpg" alt="Portrait of Samitha N. Thilakarathna" class="round-portrait"/>
+            </div>
+            <div class="learning-curve-content">
+                <img src="images/learning curve.png" alt="A graph showing my learning curve in AI over time.">
+            </div>
         </div>
     </section>
     
     <section class="special-projects-section" aria-labelledby="special-projects-heading">
-      <h2 id="special-projects-heading">Special Projects</h2>
-      <p>Offshore Wind Farms: Nurturing Fish Spawning Grounds</p>
-      <a href="#" class="btn" role="button">View Publication in DTU Orbit</a>
+        <div class="project-text">
+            <h2 id="special-projects-heading">Special Projects</h2>
+            <p>Offshore Wind Farms: Nurturing Fish Spawning Grounds</p>
+            <a href="#" class="btn" role="button">View Publication in DTU Orbit</a>
+        </div>
+        <div class="video-placeholder">
+            </div>
     </section>  
   </main>
 
