@@ -86,37 +86,56 @@
     .learning-curve-content { flex-grow: 1; }
     .learning-curve-content img { width: 100%; max-width: 800px; height: auto; border-radius: 8px; }
 
-    /* My Articles Section */
+    /* My Articles Section - CORRECTED */
     .my-articles-section { background-color: #000; }
     .my-articles-section h2 { width: 100%; text-align: left; }
     .article-slider-wrapper { position: relative; width: 100%; padding: 0 50px; box-sizing: border-box; }
     .article-slider-container { overflow: hidden; }
     .article-slider { display: flex; transition: transform 0.5s ease-in-out; }
-    .article-card { flex: 0 0 23%; margin-right: 2%; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-    
+    .article-card {
+      position: relative; /* For the green stripe */
+      flex: 0 0 23%;
+      margin-right: 2%;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none; /* Removes underline */
+      color: #fff;           /* Sets text color to white */
+    }
+    .article-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: var(--glow-color);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
     .article-card:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--glow-color); }
-    .article-thumbnail { width: 100%; padding-top: 75%; background-color: #222; border-radius: 8px; margin-bottom: 1rem; }
-    .article-card p { font-size: 0.9rem; margin: 0; }
-    .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.1); border: 1px solid #fff; color: #fff; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; z-index: 10; font-size: 1.5rem; }
-    .slider-arrow.prev { left: 0; }
-    .slider-arrow.next { right: 0; }
     .article-thumbnail {
-      position: relative; /* Important for positioning the image */
+      position: relative;
       width: 100%;
       padding-top: 75%;
       background-color: #222;
       border-radius: 8px;
       margin-bottom: 1rem;
-      overflow: hidden; /* Ensures the image respects the rounded corners */
+      overflow: hidden;
     }
     .article-thumbnail img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image fills the space without stretching */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+    .article-card p { font-size: 0.9rem; margin: 0; padding: 0 10px 10px 10px; } /* Added padding for text */
+    .slider-arrow { position: absolute; top: 40%; transform: translateY(-50%); background-color: rgba(255,255,255,0.1); border: 1px solid #fff; color: #fff; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; z-index: 10; font-size: 1.5rem; }
+    .slider-arrow.prev { left: 0; }
+    .slider-arrow.next { right: 0; }
+    
     /* Special Projects Section */
     .special-projects-section { background-color: #455f38; flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; }
     .project-text { flex-basis: 50%; text-align: left; }
@@ -125,7 +144,7 @@
     .video-placeholder { flex-basis: 45%; height: 400px; background-color: #93cb2e; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 500; }
     .video-placeholder iframe { width: 100%; height: 100%; border-radius: 8px; }
 
-    /* My Skills Section - UPDATED */
+    /* My Skills Section */
     .my-skills-section { background-color: #000; flex-direction: row; align-items: center; gap: 2rem; }
     .skills-content-left { flex-basis: 50%; }
     .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
@@ -246,47 +265,62 @@
         <div class="article-slider-container">
           <div class="article-slider">
             
-            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_smartfisheries-airesearch-computervision-activity-7377327701453430784-FDD4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
-                <img src="" alt="">
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_smartfisheries-airesearch-computervision-activity-7377327701453430784-FDD4?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="images/article1.jpg" alt="Fish Re-Identification">
               </div>
               <p>Importance of Fish Re-Identification in Fisheries Catch Documentation</p>
             </a>
     
-            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_fisheries-ai-smartfisheries-activity-7375926332670566400-U0a2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_fisheries-ai-smartfisheries-activity-7375926332670566400-U0a2?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="images/article2.jpg" alt="Fish Species Classifier">
+              </div>
               <p>How to train a Fish Species Classifier with Deep Learning</p>
             </a>
     
-            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_types-of-fisheries-data-activity-7371107323676753920-gMTw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_types-of-fisheries-data-activity-7371107323676753920-gMTw?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="images/article3.jpg" alt="Fisheries Data">
+              </div>
               <p>Types of Fisheries Data</p>
             </a>
     
-            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_zedcamera-stereovision-simplesolution-activity-7367198429812391937-H_nJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_zedcamera-stereovision-simplesolution-activity-7367198429812391937-H_nJ?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="images/article4.jpg" alt="SVO to AVI converter">
+              </div>
               <p>SVO to AVI video converter app (For ZED camera users)</p>
             </a>
     
-            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_why-are-ai-applications-necessary-in-sustainable-activity-7364606135569440769-OyMK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_why-are-ai-applications-necessary-in-sustainable-activity-7364606135569440769-OyMK?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="images/article5.jpg" alt="AI in Sustainable Fisheries">
+              </div>
               <p>Why are AI applications necessary in Sustainable Fisheries?</p>
             </a>
 
-            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_transfer-learning-activity-7350823993131560962-iOoh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
-              <p>Transfer Learning</p>
-            </a>
-            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_contrastivelearning-ai-deeplearning-activity-7348306675537186816-MDR7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
-              <p>Contrastive Learning</p>
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_transfer-learning-activity-7350823993131560962-iOoh?utm_source=share&utm_medium=member_desktop" class="article-card">
+                <div class="article-thumbnail">
+                  <img src="images/article6.jpg" alt="Transfer Learning">
+                </div>
+                <p>Transfer Learning</p>
             </a>
 
-            
-             <a href="https://www.linkedin.com/posts/samitha-thilakarathna_deeplearning-ai-neuralnetworks-activity-7319770320045801472-uFEA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB8AOzQBQcVXAgPyTOuJQBge7OedDJgYFLc" class="article-card">
-              <div class="article-thumbnail"></div>
-              <p>Cat Experiment for Modern Neural Networks</p>
-            </a>   
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_contrastivelearning-ai-deeplearning-activity-7348306675537186816-MDR7?utm_source=share&utm_medium=member_desktop" class="article-card">
+                <div class="article-thumbnail">
+                  <img src="images/article7.jpg" alt="Contrastive Learning">
+                </div>
+                <p>Contrastive Learning</p>
+            </a>
+
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_deeplearning-ai-neuralnetworks-activity-7319770320045801472-uFEA?utm_source=share&utm_medium=member_desktop" class="article-card">
+                <div class="article-thumbnail">
+                  <img src="images/article8.jpg" alt="Cat Experiment for Neural Networks">
+                </div>
+                <p>Cat Experiment for Modern Neural Networks</p>
+            </a>
+
           </div>
         </div>
         <button class="slider-arrow prev" id="articles-prev">&#10094;</button>
@@ -319,13 +353,13 @@
           <div class="skill-block">Programming (R, Python)</div>
         </div>
         <div class="software-icons">
-          <img src="icons/ps.png" alt="Adobe Creative Suite">
-          <img src="icons/ae.png" alt="Adobe Creative Suite">
-          <img src="icons/pr.png" alt="Adobe Creative Suite">
-          <img src="icons/ai.png" alt="Adobe Creative Suite">
+          <img src="icons/ps.png" alt="Adobe Photoshop">
+          <img src="icons/ae.png" alt="Adobe After Effects">
+          <img src="icons/pr.png" alt="Adobe Premiere Pro">
+          <img src="icons/ai.png" alt="Adobe Illustrator">
           <img src="icons/bl.png" alt="Blender">
-          <img src="icons/py.png" alt="Another Software">
-          <img src="icons/r.png" alt="Another Software">
+          <img src="icons/py.png" alt="Python">
+          <img src="icons/r.png" alt="R Programming">
         </div>
       </div>
       <div class="skills-slideshow-right">
@@ -377,7 +411,7 @@
       
       if (articlesSlider && articlePrevBtn && articleNextBtn) {
         const totalArticles = articlesSlider.children.length;
-        const articlesPerPage = 4; // Number of articles visible at once
+        const articlesPerPage = 4;
 
         articleNextBtn.addEventListener('click', () => {
           if (articleIndex < (totalArticles - articlesPerPage)) {
@@ -413,32 +447,31 @@
         };
         
         const startAutoplay = () => {
-          // Only start autoplay if it's not already running
           if (!skillsInterval) {
             skillsInterval = setInterval(() => {
               goToSlide(skillIndex + 1);
-            }, 3000); // Change slide every 3 seconds
+            }, 3000);
           }
         };
 
         const stopAutoplay = () => {
           clearInterval(skillsInterval);
-          skillsInterval = null; // Reset the interval variable
+          skillsInterval = null;
         };
 
         skillsNextBtn.addEventListener('click', () => {
           stopAutoplay();
           goToSlide(skillIndex + 1);
-          startAutoplay(); // Restart autoplay after manual navigation
+          startAutoplay();
         });
 
         skillsPrevBtn.addEventListener('click', () => {
           stopAutoplay();
           goToSlide(skillIndex - 1);
-          startAutoplay(); // Restart autoplay after manual navigation
+          startAutoplay();
         });
         
-        startAutoplay(); // Start the slideshow on page load
+        startAutoplay();
       }
     });
   </script>
