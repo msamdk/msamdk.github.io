@@ -272,7 +272,10 @@
         background-color: #fff;
         color: #000;
     }
-
+    .social-icons a img {
+    width: 55%; /* Adjust size of icon inside the circle */
+    height: 55%;
+    }
     /* --- RESPONSIVE ADJUSTMENTS --- */
     @media (max-width: 768px) {
       
@@ -347,6 +350,7 @@
         text-align: center;
         justify-content: center;
       }
+
     }
   </style>
 </head>
@@ -434,11 +438,16 @@
             9850 Hirtshals
           </p>
         </div>
-        <div class="social-links">
-          <p>Follow me on social media</p>
           <div class="social-icons">
-              <a href="#" aria-label="Facebook">f</a>
-              <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="LinkedIn">
+              <img src="icons/lk.png" alt="LinkedIn Profile">
+            </a>
+            
+            <a href="#" aria-label="Github">
+              <img src="icons/gh.png" alt="github profile">
+            </a>
+      
+            </a>
           </div>
         </div>
     </div>
