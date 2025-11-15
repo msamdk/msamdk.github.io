@@ -91,7 +91,370 @@
       box-shadow: 0 0 24px 0 #E3684F, 0 0 36px 2px #23b3c988;
     }
 
-    /* Responsive adjustments */
+    /* Remaining Sections */
+    .who-i-am {
+      flex-direction: row;
+      align-items: center;
+      gap: 36px;
+    }
+    .who-i-am .text-content { flex: 1 1 55%; }
+    .who-i-am .gif-placeholders { flex: 1 1 25%; display: flex; flex-direction: column; gap: 20px; }
+    .gif-box { position: relative; width: 100%; padding-top: 56.25%; background-color: #222; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,.5); }
+    .gif-box img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px; object-fit: cover; }
+
+    .background-section {
+      background-color: #303030; 
+      color: #fff; 
+      padding-top: 24px;
+      padding-bottom: 24px;
+      min-height: unset;
+      height:auto;
+    }
+    
+    .learning-curve-section {
+      background-color: #000000; 
+      gap: 2rem; 
+    }
+    .learning-curve-section h2 {
+      width: 100%; 
+      text-align: left; 
+      margin-bottom: 0; 
+    }
+    .learning-curve-body {
+      display: flex; 
+      align-items: center;
+      justify-content: space-around; 
+      gap: 40px; 
+      width: 100%; 
+    }
+    .portrait-holder {
+      flex-shrink: 0; 
+      width: 280px; 
+      height: 280px; 
+      border-radius: 50%; 
+      overflow: hidden; 
+      border: 5px solid white; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+      background-color: #3e486b; 
+    }
+    .portrait-holder .round-portrait {
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
+    }
+    .learning-curve-content {
+      flex-grow: 1; 
+    }
+    .learning-curve-content img {
+      width: 100%; max-width: 800px; height: auto; border-radius: 8px; 
+    }
+
+    .my-articles-section {
+      background-color: #303030;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      min-height: unset;
+      height: auto;
+    }
+    .my-articles-section h2 {
+      width: 100%;
+      text-align: left;
+    }
+    .article-slider-wrapper {
+      position: relative;
+      width: 100%;
+      padding: 0 50px;
+      box-sizing: border-box;
+    }
+    .article-slider-container {
+      overflow: hidden;
+    }
+    .article-slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .article-card {
+      position: relative;
+      flex: 0 0 23%;
+      margin-right: 2%;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+    }
+    .article-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: var(--glow-color);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .article-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--glow-color);
+    }
+    .article-thumbnail {
+      position: relative;
+      width: 100%;
+      padding-top: 75%;
+      background-color: #222;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .article-thumbnail img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .article-card p {
+      font-size: 0.9rem;
+      margin: 0;
+      padding: 0 10px 10px 10px;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      background-color: rgba(255,255,255,0.1);
+      border: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      z-index: 10;
+      font-size: 1.5rem;
+    }
+    .slider-arrow.prev {
+      left: 0;
+    }
+    .slider-arrow.next {
+      right: 0;
+    }
+
+    .special-projects-section {
+      background-color: #000;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .project-text {
+      flex-basis: 50%;
+      text-align: left;
+    }
+    .project-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .project-text .project-description {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      line-height: 1.5;
+      margin-top: 1em;
+    }
+    .video-placeholder {
+      flex-basis: 45%;
+      height: 400px;
+      background-color: #93cb2e;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-weight: 500;
+    }
+    .video-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .my-skills-section {
+      position: relative;
+      isolation: isolate;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+    }
+    .my-skills-section::before {
+      content: '';
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height:100%;
+      background: url('images/x ray ship.gif');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: -1;
+    }
+    .skills-content-left { flex-basis: 50%; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .skill-block {
+      position: relative;
+      overflow: hidden;
+      background-color: #455f38;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .skill-block:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--glow-color); }
+    .skill-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+    .skill-block:hover::before { left: 100%; }
+    .software-icons {
+      display: flex; 
+      justify-content: center; 
+      gap: 1.5rem; 
+      margin-top: 2rem; 
+      padding: 1rem;
+    }
+    .software-icons img {
+      height: 40px; 
+      width: auto;
+      opacity: 0.7;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .software-icons img:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    .skills-slideshow-right {
+      position: relative;
+      flex-basis: 45%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .slideshow-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+      flex: 0 0 100%;
+      height: 100%;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slideshow-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.4);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      z-index: 10;
+      font-size: 1.5rem;
+    }
+    .slideshow-arrow.prev {
+      left: 10px;
+    }
+    .slideshow-arrow.next {
+      right: 10px;
+    }
+
+    /* Button styling */
+    .btn {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      background-color: #E3684F;
+      color: black;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 14px;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s ease;
+      z-index: -1;
+    }
+    .btn:hover::before { left: 100%; }
+
+    /* Footer */
+    footer {
+      max-width: 1360px;
+      margin: 0 auto 4rem auto;
+      padding: 48px 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 36px;
+    }
+    footer .contact-info { flex: 1 1 400px; }
+    footer .social-links { text-align: right; }
+    footer .social-links p { margin-top: 0; }
+    footer .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+    footer .social-icons a {
+      border: none;
+      background-color: transparent;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover {
+      background-color: transparent;
+      transform: scale(1.1);
+    }
+    .social-icons a img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
       h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
       h2 { font-size: 2rem; }
@@ -134,11 +497,6 @@
       footer { flex-direction: column; text-align: center; }
       footer .social-links, footer .social-icons { text-align: center; justify-content: center; }
     }
-
-    /* ... rest of your styles (no change needed for other sections) ... */
-    .background-section { background-color: #303030; color: #fff; padding-top: 24px; padding-bottom:24px; min-height: unset; height:auto;}
-    .my-articles-section { background-color: #303030; padding-top:24px; padding-bottom: 24px; min-height:unset; height:auto;}
-    /* ... all other styles ... */
   </style>
 </head>
 <body>
@@ -157,14 +515,182 @@
   </header>
 
   <main>
-    <!-- ... rest of your sections unchanged ... -->
-    <!-- (Include all your <section> blocks exactly as before) -->
-    <!-- No changes are needed to other main content blocks. -->
+    <section class="who-i-am" aria-labelledby="who-i-am-heading">
+      <div class="text-content">
+        <h2 id="who-i-am-heading">Who I Am and What I Do</h2>
+        <p>My name is Samitha N. Thilakarathna. I'm a PhD student at DTU Aqua, and I am specializing in cutting-edge artificial intelligence solutions for automated fisheries catch monitoring.</p>
+        <p>My research spans the breadth of pelagic, demersal trawl, and gillnet fisheries, targeting the development of advanced systems for species identification, quantification, and comprehensive documentation.</p>
+        <p>By harnessing AI technologies, my work strives for 100% coverage in monitoring and data accuracy—driving the transformation toward transparent, sustainable fisheries management for the future.</p>
+        <a href="https://youtu.be/JkDODYWyLLg?si=d5doFXNENrmtCnXg" class="btn" role="button">Watch my latest Documentary</a>
+      </div>
+      <div class="gif-placeholders" aria-label="Visual examples of research">
+        <div class="gif-box"><img src="images/belt sort.gif" alt="Animated GIF of a fish sorting belt."></div>
+        <div class="gif-box"><img src="images/anno.gif" alt="Annotations using Supervisely."></div>
+        <div class="gif-box"><img src="images/beamm.gif" alt="Camera view of fish on a conveyor."></div>
+      </div>
+    </section>
+
+    <section class="background-section" aria-labelledby="background-heading">
+      <div>
+        <h2 id="background-heading">My Background</h2>
+        <p>I began my academic journey in Fisheries and Marine Science (BSc.) at the University of Ruhuna in Sri Lanka, gaining a comprehensive understanding of the fishing industry underpinned by rigorous training in mathematics and statistics.</p>
+        <p>Building on this strong foundation, I pursued a Master's degree at DTU Aqua, Technical University of Denmark, focusing on Sustainable Fisheries and Aquaculture. It was here that my fascination with artificial intelligence and computer vision first took root, culminating in a master's thesis on Fish Re-Identification using deep learning techniques—specifically, Vision Transformers.</p>
+        <p>Now, as a PhD student at DTU Aqua, my work centers on advanced computer vision and AI applications for automated fisheries monitoring. This scientific journey has been both transformative and deeply rewarding, thanks in large part to the inspiring mentorship and collaborative spirit within DTU. The future holds many exciting developments, and I am eager to contribute innovative solutions to the challenges of fisheries science.</p>
+      </div>
+    </section>
+
+    <section class="learning-curve-section" aria-labelledby="learning-curve-heading">
+        <h2 id="learning-curve-heading">My Learning Curve</h2>
+        <div class="learning-curve-body">
+            <div class="portrait-holder">
+                <img src="images/circl.jpg" alt="Portrait of Samitha N. Thilakarathna" class="round-portrait"/>
+            </div>
+            <div class="learning-curve-content">
+                <img src="images/learning curve.png" alt="A graph showing my learning curve in AI over time.">
+            </div>
+        </div>
+    </section>
+
+    <section class="my-articles-section" aria-labelledby="articles-heading">
+      <h2 id="articles-heading">My Articles</h2>
+      <div class="article-slider-wrapper">
+        <div class="article-slider-container">
+          <div class="article-slider">
+            
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_smartfisheries-airesearch-computervision-activity-7377327701453430784-FDD4?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="thumb/reid.gif" alt="Fish Re-Identification">
+              </div>
+              <p>Importance of Fish Re-Identification in Fisheries Catch Documentation</p>
+            </a>
+    
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_fisheries-ai-smartfisheries-activity-7375926332670566400-U0a2?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="thumb/Camera (2).png" alt="Fish Species Classifier">
+              </div>
+              <p>How to train a Fish Species Classifier with Deep Learning</p>
+            </a>
+    
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_types-of-fisheries-data-activity-7371107323676753920-gMTw?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="thumb/fisheries data.png" alt="Fisheries Data">
+              </div>
+              <p>Types of Fisheries Data</p>
+            </a>
+    
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_zedcamera-stereovision-simplesolution-activity-7367198429812391937-H_nJ?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="thumb/trim_settings.png" alt="SVO to AVI converter">
+              </div>
+              <p>SVO to AVI video converter app (For ZED camera users)</p>
+            </a>
+    
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_why-are-ai-applications-necessary-in-sustainable-activity-7364606135569440769-OyMK?utm_source=share&utm_medium=member_desktop" class="article-card">
+              <div class="article-thumbnail">
+                <img src="thumb/limitations of em.png" alt="AI in Sustainable Fisheries">
+              </div>
+              <p>Why are AI applications necessary in Sustainable Fisheries?</p>
+            </a>
+
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_transfer-learning-activity-7350823993131560962-iOoh?utm_source=share&utm_medium=member_desktop" class="article-card">
+                <div class="article-thumbnail">
+                  <img src="thumb/trsn.png" alt="Transfer Learning">
+                </div>
+                <p>Transfer Learning</p>
+            </a>
+
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_contrastivelearning-ai-deeplearning-activity-7348306675537186816-MDR7?utm_source=share&utm_medium=member_desktop" class="article-card">
+                <div class="article-thumbnail">
+                  <img src="thumb/constr.png" alt="Contrastive Learning">
+                </div>
+                <p>Contrastive Learning</p>
+            </a>
+
+            <a href="https://www.linkedin.com/posts/samitha-thilakarathna_deeplearning-ai-neuralnetworks-activity-7319770320045801472-uFEA?utm_source=share&utm_medium=member_desktop" class="article-card">
+                <div class="article-thumbnail">
+                  <img src="thumb/cat.jpeg" alt="Cat Experiment for Neural Networks">
+                </div>
+                <p>Cat Experiment for Modern Neural Networks</p>
+            </a>
+
+          </div>
+        </div>
+        <button class="slider-arrow prev" id="articles-prev">❮</button>
+        <button class="slider-arrow next" id="articles-next">❯</button>
+      </div>
+    </section>
+
+    <section class="special-projects-section" aria-labelledby="special-projects-heading">
+        <div class="project-text">
+            <h2 id="special-projects-heading">Special Projects</h2>
+            <p>Offshore Wind Farms: Nurturing Fish Spawning Grounds</p>
+            <p class="project-description">
+              Explore how offshore wind farms can enhance marine biodiversity by creating ideal conditions for fish spawning. These installations often feature monopile foundations with scour protection made of large rocks, forming reef-like structures that stabilize the seabed and prevent erosion. These artificial reefs provide habitats that boost fish abundance, growth, and survival. Additionally, fishing restrictions within wind farm areas can transform them into sanctuaries for various marine species. This video delves into a study by DTU Aqua investigating whether Atlantic cod (Gadus morhua) spawn within a Danish offshore wind farm in the North Sea. Discover how such environments may support marine life and contribute to the restoration of sustainable fish populations across European waters.
+            </p>
+            <a href="https://orbit.dtu.dk/en/persons/mahagedara-waththe-samitha-nuwan-thilakarathna/publications/" class="btn" role="button">View Publication in DTU Orbit</a>
+        </div>
+        <div class="video-placeholder">
+          <iframe src="https://www.youtube.com/embed/oVCHUVFysiQ?si=Uxd0td3WII4q3YZO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+        </div>
+    </section>
+
+    <section class="my-skills-section" aria-labelledby="skills-heading">
+      <div class="skills-content-left">
+        <h2 id="skills-heading">My Skills</h2>
+        <p>Over the past years I have gained and practiced some extra skills that became useful in my academic journey.</p>
+        <div class="skills-grid">
+          <div class="skill-block">Video Production</div>
+          <div class="skill-block">Digital Illustration</div>
+          <div class="skill-block">2D/3D Animation</div>
+          <div class="skill-block">Programming (R, Python)</div>
+        </div>
+        <div class="software-icons">
+          <img src="icons/ps.png" alt="Adobe Photoshop">
+          <img src="icons/ae.png" alt="Adobe After Effects">
+          <img src="icons/pr.png" alt="Adobe Premiere Pro">
+          <img src="icons/ai.png" alt="Adobe Illustrator">
+          <img src="icons/bl.png" alt="Blender">
+          <img src="icons/py.png" alt="Python">
+          <img src="icons/r.png" alt="R Programming">
+        </div>
+      </div>
+      <div class="skills-slideshow-right">
+        <div class="slideshow-track">
+          <div class="slide"><img src="images/blender.gif" alt="Image of a project"></div>
+          <div class="slide"><img src="images/conver.png" alt="Image of another project"></div>
+          <div class="slide"><img src="images/stereo.gif" alt="Image of a fourth project"></div>
+          <div class="slide"><img src="images/pose.gif" alt="Image of a Fifth project"></div>
+          <div class="slide"><img src="images/2.png" alt="Image of a third project"></div>
+        </div>
+        <button class="slideshow-arrow prev" id="skills-prev">❮</button>
+        <button class="slideshow-arrow next" id="skills-next">❯</button>
+      </div>
+    </section>
   </main>
 
   <footer role="contentinfo">
     <div class="container">
-      <!-- ... unchanged ... -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p><strong>Email:</strong> msam@aqua.dtu.dk</p>
+        <p><strong>Office address:</strong><br/>
+          Section for Fisheries Technology<br/>
+          Danmarks Tekniske Universitet<br/>
+          Willemoesvej 2, Building Hovedbygning.<br/>
+          9850 Hirtshals
+        </p>
+      </div>
+      <div class="social-links">
+        <p>Follow me on social media</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/samitha-thilakarathna/" aria-label="LinkedIn">
+            <img src="icons/lk.png" alt="LinkedIn Profile">
+          </a>
+          <a href="https://github.com/msamdk" aria-label="Github">
+            <img src="icons/gh.png" alt="GitHub Profile">
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
