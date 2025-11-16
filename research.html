@@ -1,1 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Updates - Samitha Thilakarathna</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --glow-color: #FFFFFF;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1 { font-size: 3.5rem; margin: 0 0 0.25em 0; font-weight: 500; line-height: 1.1; }
+    h2 { font-size: 2.5rem; margin-top: 0; margin-bottom: 1em; font-weight: 500; }
+    h3 { font-size: 1.4rem; margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 600; color: #E3684F; }
+    p { font-size: 1.1rem; font-weight: 400; line-height: 1.8; }
+
+    /* Navigation Bar */
+    nav.navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(227, 104, 79, 0.3);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-logo:hover {
+      color: #E3684F;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .navbar-links a:hover {
+      color: #E3684F;
+    }
+
+    .navbar-links a.active {
+      color: #E3684F;
+      border-bottom: 2px solid #E3684F;
+      padding-bottom: 4px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+      padding: 120px 48px 80px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+      background: linear-gradient(135deg, #E3684F, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 48px;
+    }
+
+    /* Research Updates Grid */
+    .updates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .update-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(80,255,255,0.02) 60%);
+      border: 1px solid rgba(227, 104, 79, 0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .update-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(227, 104, 79, 0.2);
+      border-color: #E3684F;
+    }
+
+    .update-card .date {
+      font-size: 0.85rem;
+      color: #E3684F;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .update-card h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    .update-card p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .update-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: rgba(227, 104, 79, 0.2);
+      border: 1px solid #E3684F;
+      color: #E3684F;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Timeline Style */
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, #E3684F, transparent);
+    }
+
+    .timeline-item {
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+      text-align: right;
+      padding-right: 50%;
+      padding-left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      text-align: left;
+      padding-left: 50%;
+      padding-right: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #E3684F;
+      border: 4px solid #000;
+      border-radius: 50%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-content {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(80,255,255,0.02) 60%);
+      border: 1px solid rgba(227, 104, 79, 0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .timeline-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .timeline-content .date {
+      font-size: 0.85rem;
+      color: #E3684F;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Back Button */
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(227, 104, 79, 0.2);
+      border: 1px solid #E3684F;
+      color: #E3684F;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+    }
+
+    .back-button:hover {
+      background-color: #E3684F;
+      color: #000;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 1360px;
+      margin: 0 auto 4rem auto;
+      padding: 48px 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 36px;
+      border-top: 1px solid rgba(227, 104, 79, 0.2);
+    }
+
+    footer .contact-info { flex: 1 1 400px; }
+    footer .social-links { text-align: right; }
+    footer .social-links p { margin-top: 0; font-size: 1rem; }
+    footer .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+    footer .social-icons a {
+      border: none;
+      background-color: transparent;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover {
+      transform: scale(1.1);
+    }
+    .social-icons a img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 80px 24px 60px;
+        margin-top: 80px;
+      }
+
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        padding: 40px 24px;
+      }
+
+      .updates-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 0;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding: 0 0 0 40px;
+        text-align: left;
+      }
+
+      .timeline-item::before {
+        left: 0;
+        transform: translateX(-8px);
+      }
+
+      .navbar-links {
+        gap: 12px;
+        font-size: 0.85rem;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer .social-links { text-align: center; }
+      footer .social-icons { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-logo">Samitha Thilakarathna</a>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="research-updates.html" class="active">Research Updates</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Research Updates</h1>
+      <p>Latest developments, presentations, and milestones in my fish re-identification and fisheries monitoring research</p>
+    </div>
+  </section>
+
+  <main>
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <!-- Updates Grid Section -->
+    <section>
+      <h2>Latest Updates</h2>
+      <div class="updates-grid">
+        
+        <div class="update-card">
+          <div class="date">November 2025</div>
+          <h3>NLDL Conference 2025 - Tromsø, Norway</h3>
+          <p>Presenting research on fine-grained fish re-identification using Vision Transformers at the Northern Lights Deep Learning conference. Discussing advances in metric learning for fisheries monitoring.</p>
+          <div class="tags">
+            <span class="tag">Conference</span>
+            <span class="tag">Vision Transformers</span>
+            <span class="tag">Fish Re-ID</span>
+          </div>
+        </div>
+
+        <div class="update-card">
+          <div class="date">November 2025</div>
+          <h3>Paper Accepted: Fine-Grained Fish Classification</h3>
+          <p>Our paper "Towards Visual Re-Identification of fish using Fine-Grained Classification for Electronic Monitoring in Fisheries" has been accepted for publication. Focus on species identification accuracy for commercial fisheries.</p>
+          <div class="tags">
+            <span class="tag">Publication</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">E-Monitoring</span>
+          </div>
+        </div>
+
+        <div class="update-card">
+          <div class="date">October 2025</div>
+          <h3>Stereo Vision System Deployment</h3>
+          <p>Successfully deployed stereo vision system on commercial North Sea trawlers. Real-time 3D fish detection and segmentation achieving 92% accuracy in live catch monitoring scenarios.</p>
+          <div class="tags">
+            <span class="tag">Deployment</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Real-time</span>
+          </div>
+        </div>
+
+        <div class="update-card">
+          <div class="date">September 2025</div>
+          <h3>AutoFish Dataset Expansion</h3>
+          <p>Expanded AutoFish dataset with 50,000 new annotated fish images from 15 different species. Improved model generalization across pelagic and demersal fisheries with enhanced annotation quality protocols.</p>
+          <div class="tags">
+            <span class="tag">Dataset</span>
+            <span class="tag">Annotation</span>
+            <span class="tag">Benchmark</span>
+          </div>
+        </div>
+
+        <div class="update-card">
+          <div class="date">August 2025</div>
+          <h3>Metric Learning Integration</h3>
+          <p>Integrated triplet loss-based metric learning into the fish re-identification pipeline. Results show 15% improvement in re-identification accuracy with better embedding space organization for fine-grained features.</p>
+          <div class="tags">
+            <span class="tag">Metric Learning</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Triplet Loss</span>
+          </div>
+        </div>
+
+        <div class="update-card">
+          <div class="date">July 2025</div>
+          <h3>Grad-CAM Interpretability Study</h3>
+          <p>Published research on using Gradient-weighted Class Activation Maps to interpret fish re-identification model decisions. Enhanced transparency for regulatory compliance and scientific validation.</p>
+          <div class="tags">
+            <span class="tag">Interpretability</span>
+            <span class="tag">Grad-CAM</span>
+            <span class="tag">Explainability</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section>
+      <h2 style="margin-top: 4rem; margin-bottom: 2rem;">Development Timeline</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Started PhD at DTU Aqua</h4>
+            <div class="date">September 2024</div>
+            <p>Began doctoral research focusing on AI-powered fish re-identification and automated fisheries catch monitoring. Established baseline models and began dataset creation.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Vision Transformer Implementation</h4>
+            <div class="date">December 2024</div>
+            <p>Implemented Vision Transformer (ViT) architecture for fish re-identification. Fine-tuned pre-trained models achieving state-of-the-art results on internal benchmarks.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Field Trials - Commercial Fisheries</h4>
+            <div class="date">March 2025</div>
+            <p>Conducted field trials on operating commercial fishing vessels. Tested real-world performance under challenging lighting and motion conditions. Achieved 88% accuracy in uncontrolled environments.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Model Optimization for Edge Deployment</h4>
+            <div class="date">June 2025</div>
+            <p>Optimized models for deployment on edge devices (NVIDIA Jetson). Reduced inference time by 60% while maintaining 94% accuracy. Ready for embedded systems on fishing vessels.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Publication & Conference Presentations</h4>
+            <div class="date">November 2025</div>
+            <p>Submitted and presented research findings at international conferences. Multiple papers under review in top-tier computer vision and marine science journals.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p><strong>Email:</strong> msam@aqua.dtu.dk</p>
+      <p><strong>Office address:</strong><br/>
+        Section for Fisheries Technology<br/>
+        Danmarks Tekniske Universitet<br/>
+        Willemoesvej 2, Building Hovedbygning.<br/>
+        9850 Hirtshals
+      </p>
+    </div>
+    <div class="social-links">
+      <p>Follow me on social media</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/samitha-thilakarathna/" aria-label="LinkedIn">
+          <img src="icons/lk.png" alt="LinkedIn Profile">
+        </a>
+        <a href="https://github.com/msamdk" aria-label="Github">
+          <img src="icons/gh.png" alt="GitHub Profile">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
 
