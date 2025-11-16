@@ -1,1 +1,355 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Label Fish Images for Deep Learning: Best Tools and Practices</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --glow-color: #FFFFFF;
+      --accent-color: #26a69a;  
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1 { font-size: 2.6rem; margin: 0.4em 0 0.2em 0; font-weight: 700; }
+    h2 { font-size: 2rem; margin: 2.4em 0 1em 0; font-weight: 500; }
+    h3 { font-size: 1.4rem; margin-top: 2em; margin-bottom: 0.5em; }
+    p { font-size: 1.13rem; font-weight: 400; }
+    ul { margin-left: 1.1em; }
+    .meta {
+      font-size: 1rem;
+      color: var(--accent-color);
+      margin-bottom: 1.1em;
+      font-weight: 500;
+    }
+
+    /* Navigation Bar */
+    nav.navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(38, 166, 154, 0.3);
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .navbar-logo:hover {
+      color: var(--accent-color);
+    }
+    .navbar-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .navbar-links a:hover {
+      color: var(--accent-color);
+    }
+    .navbar-links a.active {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 4px;
+    }
+
+    /* Hero / Header */
+    .blog-hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+      padding: 115px 0 42px 0;
+      text-align: center;
+      margin-top: 2px;
+    }
+    .blog-hero h1 {
+      background: linear-gradient(135deg, var(--accent-color), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25em;
+    }
+    .blog-hero .meta {
+      display: block;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 0.8em;
+      font-size: 1.1rem;
+    }
+
+    /* Main Body */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 0 20px 0;
+      background: none;
+      border: none;
+    }
+
+    .article-image, .article-gif {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(38, 166, 154, 0.15), rgba(255,255,255,0.05) 60%);
+      border-radius: 12px;
+      border: 2px solid var(--accent-color);
+      margin: 2.3em 0;
+      width: 100%;
+      min-height: 260px;
+      overflow: hidden;
+    }
+    .article-image img,
+    .article-gif img {
+      max-width: 95%;
+      max-height: 340px;
+      width: auto;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+    .article-placeholder {
+      color: #65f1c3;
+      opacity: .55;
+      font-size: 1.2rem;
+      font-style: italic;
+      text-align: center;
+      width: 100%;
+      padding: 50px 10px;
+    }
+    .article-gif {
+      border-style: dashed;
+      background: repeating-linear-gradient(-45deg, #26a69a09, #26a69a09 10px, #000 0, #000 20px);
+    }
+
+    /* Back/Next Links */
+    .article-nav {
+      margin: 2.5rem 0 0 0;
+      display: flex;
+      justify-content: flex-start;
+      gap: 16px;
+    }
+    .article-nav a {
+      background: var(--accent-color);
+      color: #000;
+      padding: 7px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.35s;
+      font-size: 1rem;
+    }
+    .article-nav a:hover {
+      background: #29f5d2;
+      color: #222;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 1360px;
+      margin: 0 auto 4rem auto;
+      padding: 48px 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 36px;
+      border-top: 1px solid rgba(38, 166, 154, 0.2);
+    }
+
+    footer .contact-info { flex: 1 1 400px; }
+    footer .social-links { text-align: right; }
+    footer .social-links p { margin-top: 0; font-size: 1rem; }
+    footer .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+    footer .social-icons a {
+      border: none;
+      background-color: transparent;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+    footer .social-icons a:hover {
+      transform: scale(1.1);
+    }
+    .social-icons a img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero {
+        padding: 75px 0 32px 0;
+      }
+      .blog-hero h1 {
+        font-size: 2rem;
+      }
+      main { padding: 25px 0 8px 0; }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer .social-links { text-align: center; }
+      footer .social-icons { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">Samitha Thilakarathna</a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="research-updates.html">Research Updates</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="container">
+    <span class="meta">15 Nov 2025 · Tutorial</span>
+    <h1>How to Label Fish Images for Deep Learning: Best Tools and Practices</h1>
+    <p>A practical walkthrough of annotation tools, file formats, and workflow tips for creating high-quality fish image datasets for recognition and re-identification projects.</p>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+
+    <div class="article-image">
+      <span class="article-placeholder">[IMAGE: Example of annotated fish dataset screenshot]</span>
+      <!-- <img src="images/sample-annotation.jpg" alt="Sample Fish Dataset Annotation"> -->
+    </div>
+
+    <h2>Why Annotation Quality Matters</h2>
+    <p>
+      Creating robust deep learning models for fish species identification and re-identification depends critically on the quality of your labels. Poorly or inconsistently annotated datasets lead to model confusion, while precise, standardized annotations accelerate both learning and real-world application success.
+    </p>
+
+    <div class="article-gif">
+      <span class="article-placeholder">[GIF: Quick video showing drawing a bounding box in CVAT]</span>
+      <!-- <img src="images/annotation-demo.gif" alt="Annotation Demo GIF"> -->
+    </div>
+
+    <h2>Choosing the Right Tool</h2>
+    <p>
+      Several annotation tools are available for computer vision:
+    </p>
+    <ul>
+      <li>CVAT: Excellent for bounding boxes, polygons, multi-frame tracking</li>
+      <li>Label Studio: Flexible for images, video, and even text/audio</li>
+      <li>VGG Image Annotator: Lightweight, runs in-browser with zero setup</li>
+      <li>makesense.ai: Simple web tool with various export options</li>
+    </ul>
+    <p>
+      Your workflow and desired output format will often dictate the best choice.
+    </p>
+
+    <div class="article-image">
+      <span class="article-placeholder">[IMAGE: Side-by-side comparison of CVAT and Label Studio interfaces]</span>
+      <!-- <img src="images/tool-comparison.jpg" alt="CVAT vs Label Studio"> -->
+    </div>
+
+    <h2>Best Practices for Fish Image Annotation</h2>
+    <ul>
+      <li>Define a clear labeling protocol: what qualifies as the object/fish, permissible occlusion, size cutoffs</li>
+      <li>Use consistent label/class names (e.g., "Atlantic mackerel" not "mackerel", "mackerel - adult")</li>
+      <li>Prefer polygons for fine-grained tasks, but use bounding boxes for simpler tasks</li>
+      <li>Quality control: have a second reviewer verify a subset of images</li>
+      <li>Regularly export and back up your dataset in multiple formats (COCO, YOLO, Pascal VOC, etc.)</li>
+    </ul>
+
+    <h2>Exporting Your Dataset</h2>
+    <p>
+      Most tools allow you to export in popular formats. For deep learning, COCO (instance segmentation and detection) and YOLO (object detection) are most common. Always keep your source (JSON/XML) for reprocessing. 
+    </p>
+
+    <h2>Further Reading & Resources</h2>
+    <ul>
+      <li><a href="https://cvat.org" style="color:var(--accent-color)">CVAT Official</a></li>
+      <li><a href="https://labelstud.io" style="color:var(--accent-color)">Label Studio</a></li>
+      <li><a href="https://www.robots.ox.ac.uk/~vgg/software/via/" style="color:var(--accent-color)">VGG Image Annotator (VIA)</a></li>
+      <li><a href="https://makesense.ai" style="color:var(--accent-color)">makesense.ai</a></li>
+    </ul>
+
+    <div class="article-nav">
+      <a href="blog.html">&larr; Back to Blog</a>
+      <!-- <a href="blog-post-2.html">Next Post &rarr;</a> -->
+    </div>
+
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="contact-info">
+    <h2>Get in Touch</h2>
+    <p><strong>Email:</strong> msam@aqua.dtu.dk</p>
+    <p><strong>Office address:</strong><br/>
+      Section for Fisheries Technology<br/>
+      Danmarks Tekniske Universitet<br/>
+      Willemoesvej 2, Building Hovedbygning.<br/>
+      9850 Hirtshals
+    </p>
+  </div>
+  <div class="social-links">
+    <p>Follow me on social media</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/samitha-thilakarathna/" aria-label="LinkedIn">
+        <img src="icons/lk.png" alt="LinkedIn Profile">
+      </a>
+      <a href="https://github.com/msamdk" aria-label="Github">
+        <img src="icons/gh.png" alt="GitHub Profile">
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
