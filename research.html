@@ -13,6 +13,9 @@
     :root {
       --glow-color: #FFFFFF;
       --accent-color: #26a69a;  /* Pleasant Green */
+      --optifish-color: #26a69a; /* Teal */
+      --tefimo-color: #6a1b9a;   /* Purple */
+      --ecocatch-color: #d84315; /* Orange */
     }
 
     body {
@@ -225,6 +228,22 @@
       border-color: var(--accent-color);
     }
 
+    /* Project Tabs with Individual Colors */
+    .project-tab[data-project="optifish"].active {
+      background-color: var(--optifish-color);
+      border-color: var(--optifish-color);
+    }
+
+    .project-tab[data-project="tefimo"].active {
+      background-color: var(--tefimo-color);
+      border-color: var(--tefimo-color);
+    }
+
+    .project-tab[data-project="ecocatch"].active {
+      background-color: var(--ecocatch-color);
+      border-color: var(--ecocatch-color);
+    }
+
     /* Project Content */
     .project-content {
       display: none;
@@ -257,6 +276,34 @@
       color: var(--accent-color);
     }
 
+    /* Color-specific task boxes */
+    #optifish .task-box {
+      border-color: rgba(38, 166, 154, 0.4);
+      background: linear-gradient(135deg, rgba(38, 166, 154, 0.08), rgba(38, 166, 154, 0.02) 60%);
+    }
+
+    #optifish .task-box h4 {
+      color: var(--optifish-color);
+    }
+
+    #tefimo .task-box {
+      border-color: rgba(106, 27, 154, 0.4);
+      background: linear-gradient(135deg, rgba(106, 27, 154, 0.08), rgba(106, 27, 154, 0.02) 60%);
+    }
+
+    #tefimo .task-box h4 {
+      color: var(--tefimo-color);
+    }
+
+    #ecocatch .task-box {
+      border-color: rgba(216, 67, 21, 0.4);
+      background: linear-gradient(135deg, rgba(216, 67, 21, 0.08), rgba(216, 67, 21, 0.02) 60%);
+    }
+
+    #ecocatch .task-box h4 {
+      color: var(--ecocatch-color);
+    }
+
     .task-list {
       list-style: none;
       margin: 0;
@@ -284,6 +331,18 @@
       color: var(--accent-color);
       font-weight: bold;
       font-size: 1.1rem;
+    }
+
+    #optifish .task-list li::before {
+      color: var(--optifish-color);
+    }
+
+    #tefimo .task-list li::before {
+      color: var(--tefimo-color);
+    }
+
+    #ecocatch .task-list li::before {
+      color: var(--ecocatch-color);
     }
 
     /* Image Gallery */
@@ -327,6 +386,59 @@
 
     .gallery-item:hover::after {
       opacity: 1;
+    }
+
+    /* Coming Soon Section */
+    .coming-soon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02) 60%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      text-align: center;
+      min-height: 400px;
+      backdrop-filter: blur(10px);
+    }
+
+    .coming-soon h3 {
+      font-size: 2rem;
+      margin: 0;
+      color: #fff;
+    }
+
+    .coming-soon p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 500px;
+      margin: 0;
+    }
+
+    .coming-soon-icon {
+      font-size: 3rem;
+      opacity: 0.5;
+    }
+
+    /* Color-specific coming soon */
+    #tefimo .coming-soon {
+      border-color: rgba(106, 27, 154, 0.3);
+      background: linear-gradient(135deg, rgba(106, 27, 154, 0.05), rgba(106, 27, 154, 0.01) 60%);
+    }
+
+    #tefimo .coming-soon h3 {
+      color: var(--tefimo-color);
+    }
+
+    #ecocatch .coming-soon {
+      border-color: rgba(216, 67, 21, 0.3);
+      background: linear-gradient(135deg, rgba(216, 67, 21, 0.05), rgba(216, 67, 21, 0.01) 60%);
+    }
+
+    #ecocatch .coming-soon h3 {
+      color: var(--ecocatch-color);
     }
 
     /* Lightbox */
@@ -598,9 +710,9 @@
       <!-- Project Tabs -->
       <div class="project-tabs-container">
         <div class="project-tabs">
-          <button class="project-tab active" onclick="switchProject('optifish')">OptiFish</button>
-          <button class="project-tab" onclick="switchProject('tefimo')">TEFIMO</button>
-          <button class="project-tab" onclick="switchProject('ecocatch')">ECOCATCH</button>
+          <button class="project-tab active" data-project="optifish" onclick="switchProject('optifish')">OptiFish</button>
+          <button class="project-tab" data-project="tefimo" onclick="switchProject('tefimo')">TEFIMO</button>
+          <button class="project-tab" data-project="ecocatch" onclick="switchProject('ecocatch')">ECOCATCH</button>
         </div>
       </div>
 
@@ -654,20 +766,11 @@
             </ul>
           </div>
 
-          <!-- Gallery -->
-          <div class="project-gallery" id="tefimo-gallery">
-            <div class="gallery-item" onclick="openLightbox('tefimo-gallery', 0)">
-              <img src="images/tefimo-1.jpg" alt="Temporal embedding visualization">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('tefimo-gallery', 1)">
-              <img src="images/tefimo-2.jpg" alt="Video sequence processing">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('tefimo-gallery', 2)">
-              <img src="images/tefimo-3.jpg" alt="Model performance metrics">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('tefimo-gallery', 3)">
-              <img src="images/tefimo-4.jpg" alt="Cross-species validation">
-            </div>
+          <!-- Coming Soon -->
+          <div class="coming-soon">
+            <div class="coming-soon-icon">🚀</div>
+            <h3>More Updates Coming Soon</h3>
+            <p>Project images and detailed progress will be added as TEFIMO advances. Stay tuned for significant developments!</p>
           </div>
         </div>
       </div>
@@ -688,20 +791,11 @@
             </ul>
           </div>
 
-          <!-- Gallery -->
-          <div class="project-gallery" id="ecocatch-gallery">
-            <div class="gallery-item" onclick="openLightbox('ecocatch-gallery', 0)">
-              <img src="images/ecocatch-1.jpg" alt="Environmental monitoring dashboard">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('ecocatch-gallery', 1)">
-              <img src="images/ecocatch-2.jpg" alt="Bycatch detection results">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('ecocatch-gallery', 2)">
-              <img src="images/ecocatch-3.jpg" alt="Conservation compliance report">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('ecocatch-gallery', 3)">
-              <img src="images/ecocatch-4.jpg" alt="Stakeholder presentation">
-            </div>
+          <!-- Coming Soon -->
+          <div class="coming-soon">
+            <div class="coming-soon-icon">🌍</div>
+            <h3>More Updates Coming Soon</h3>
+            <p>Project visuals and progress documentation will be shared soon. This project is in active development!</p>
           </div>
         </div>
       </div>
